@@ -1,0 +1,20 @@
+Stage: REFACTOR
+Executed: 2026-11-11T13:55:29.885926+00:00
+Command: python -B -m unittest -v tests.test_build_tdd
+Model SHA256: f1a67e0c4afc2dea89a3fc3216ae4676361a36d89b9e6a9e1061ef23f1dbfd5b
+Tests SHA256: 94c5becdfa0981acc21e1da600942729ebf08f013a8eb450008c1d409b5a1b69
+Exit code: 0
+
+test_exact_balance_can_purchase_and_ends_at_zero (tests.test_build_tdd.BuildTransactionTests.test_exact_balance_can_purchase_and_ends_at_zero) ... ok
+test_invalid_pad_values_and_booleans_reject_without_changes (tests.test_build_tdd.BuildTransactionTests.test_invalid_pad_values_and_booleans_reject_without_changes) ... ok
+test_invalid_tower_kinds_reject_without_changes (tests.test_build_tdd.BuildTransactionTests.test_invalid_tower_kinds_reject_without_changes) ... ok
+test_one_coin_short_rejects_without_changes (tests.test_build_tdd.BuildTransactionTests.test_one_coin_short_rejects_without_changes) ... ok
+test_path_obstacle_and_home_cells_reject_without_changes (tests.test_build_tdd.BuildTransactionTests.test_path_obstacle_and_home_cells_reject_without_changes) ... ok
+test_second_purchase_on_occupied_cell_does_not_charge_again (tests.test_build_tdd.BuildTransactionTests.test_second_purchase_on_occupied_cell_does_not_charge_again) ... ok
+test_success_charges_once_and_places_one_tower (tests.test_build_tdd.BuildTransactionTests.test_success_charges_once_and_places_one_tower) ... ok
+test_won_or_lost_game_rejects_without_changes (tests.test_build_tdd.BuildTransactionTests.test_won_or_lost_game_rejects_without_changes) ... ok
+
+----------------------------------------------------------------------
+Ran 8 tests in 0.001s
+
+OK

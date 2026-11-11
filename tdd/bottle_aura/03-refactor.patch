@@ -1,0 +1,76 @@
+--- a/model.py
++++ b/model.py
+@@ -238,10 +238,21 @@
+     def upgrade_cost(self):
+         return round(TOWERS[self.kind]['cost'] * (.7 + self.level * .3))
+ 
++    @property
++    def aura_radius(self):
++        return TOWERS[self.kind].get('aura_radius', 0) if self.level == 3 else 0
++
++    def supports(self, other):
++        """光环使用塔中心间的圆形距离；来源不能支援自身。"""
++        return (other is not self and self.aura_radius > 0
++                and self.position.distance_squared_to(other.position) <= self.aura_radius ** 2)
++
+     def update(self, dt, enemies, effects, obstacles=(), priority_target=None, attack_speed=1.0):
+         if self.kind == 'magic':
+-            self.update_beam(dt * attack_speed, enemies, obstacles, priority_target)
+-            return
++            self.update_beam(dt, enemies, obstacles, priority_target, attack_speed)
++            return
++        # 冷却保存未完成的基础攻击时间，光环变化不重置已有进度。
++        # 只加快攻击时钟，转向、后坐、弹体飞行和状态持续时间仍用真实 dt。
+         self.cooldown = max(0, self.cooldown - dt * attack_speed)
+         aimed = self.kind in self.AIMED_KINDS
+         self.recoil = max(0, self.recoil - dt)
+@@ -309,7 +320,7 @@
+         return (self.beam_target is not None and self.beam_target.status == 'alive'
+                 and in_range(self.position, self.beam_target, self.radius))
+ 
+-    def update_beam(self, dt, enemies, obstacles, priority_target):
++    def update_beam(self, dt, enemies, obstacles, priority_target, attack_speed=1.0):
+         live_targets = [*enemies, *obstacles]
+         if not self.beam_active or self.beam_target not in live_targets:
+             self.beam_target = None
+@@ -321,8 +332,9 @@
+                                     and in_range(self.position, e, self.radius)),
+                                    key=lambda e: e.progress, default=None)
+         if self.beam_target is not None:
+-            # damage 为每秒伤害；没有周期性冷却或激光闪断。
+-            self.beam_target.take_damage(TOWERS['magic']['damage'] * (1 + .65 * (self.level - 1)) * dt)
++            # 连续攻击没有发射间隔，攻速收益对应每秒伤害；锁定与真实时间不变。
++            dps = TOWERS['magic']['damage'] * (1 + .65 * (self.level - 1)) * attack_speed
++            self.beam_target.take_damage(dps * dt)
+             if self.beam_target.status != 'alive':
+                 self.beam_target = None
+ 
+@@ -432,13 +444,11 @@
+             self.towers.remove(tower)
+ 
+     def attack_speed_for(self, tower):
++        """从当前塔列表推导，升级、出售立即生效，多来源仅取最高倍率。"""
+         if tower not in self.towers:
+             return 1.0
+-        for source in self.towers:
+-            if (source is not tower and source.kind == 'bottle' and source.level == 3
+-                    and source.position.distance_squared_to(tower.position) <= 160 ** 2):
+-                return 1.25
+-        return 1.0
++        return max((TOWERS[source.kind]['aura_multiplier'] for source in self.towers
++                    if source.supports(tower)), default=1.0)
+ 
+     def update(self, dt):
+         if self.state != 'playing':
+--- a/config.py
++++ b/config.py
+@@ -291,7 +291,8 @@
+         return row * COLS + col
+     return None
+ TOWERS = {
+-    'bottle': dict(name='瓶子炮', subtitle='精准点射 · 单体攻击', cost=70,
++    'bottle': dict(name='瓶子炮', subtitle='单体攻击 · 满级攻速光环', cost=70,
++                   aura_radius=160, aura_multiplier=1.25,
+                    damage=22, interval=.6, radius=155, color=(89, 215, 167)),
+     'moon': dict(name='月亮', subtitle='月光领域 · 范围减速', cost=90,
+                  damage=0, interval=1.50, radius=128, radius_step=8, color=(144, 206, 255),

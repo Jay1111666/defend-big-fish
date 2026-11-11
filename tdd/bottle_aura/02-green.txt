@@ -1,0 +1,37 @@
+Stage: 02-green
+UTC: 2026-11-11T14:52:22.382463+00:00
+Command: ['C:\\Users\\Jay\\Desktop\\protect carrot\\.venv\\Scripts\\python.exe', '-m', 'unittest', 'tests.test_bottle_aura_tdd', '-v']
+model.py: 9d09041c4865c39377e55c42cbda10abed43e68003a8d05e16189822fb3d0d8d
+config.py: 2a450e7fa79cd0d2a4ac45426638965581751ac7b3ade591103549826e62be99
+art.py: a81afcea2522540987a8b32403c2534df524a49da53f9f2347c6369eed661b21
+main.py: 3a6b04ece385b1a01e9131b850ee06e2a069c74ad4bf5b1b43c7c13af3b64c87
+tests/test_bottle_aura_tdd.py: 574ded1a6a8e65875c792448bf747a11577ffc843d15a5ed13e2fc2128ade91b
+Exit: 0
+
+test_aoe_damage_radius_and_moon_slow_duration_stay_unchanged (tests.test_bottle_aura_tdd.AuraAttackTests.test_aoe_damage_radius_and_moon_slow_duration_stay_unchanged) ... ok
+test_beam_damage_scales_with_level_and_real_elapsed_time (tests.test_bottle_aura_tdd.AuraAttackTests.test_beam_damage_scales_with_level_and_real_elapsed_time) ... ok
+test_beam_dynamic_buff_and_frame_partition_keep_same_damage (tests.test_bottle_aura_tdd.AuraAttackTests.test_beam_dynamic_buff_and_frame_partition_keep_same_damage) ... ok
+test_beam_keeps_lock_and_stops_outside_range_or_on_death (tests.test_bottle_aura_tdd.AuraAttackTests.test_beam_keeps_lock_and_stops_outside_range_or_on_death) ... ok
+test_beam_manual_obstacle_target_also_gets_dps_bonus (tests.test_bottle_aura_tdd.AuraAttackTests.test_beam_manual_obstacle_target_also_gets_dps_bonus) ... ok
+test_buff_added_and_removed_mid_cooldown_preserves_completed_work (tests.test_bottle_aura_tdd.AuraAttackTests.test_buff_added_and_removed_mid_cooldown_preserves_completed_work) ... ok
+test_every_periodic_tower_fires_at_shorter_interval_for_all_levels (tests.test_bottle_aura_tdd.AuraAttackTests.test_every_periodic_tower_fires_at_shorter_interval_for_all_levels) ... ok
+test_idle_time_does_not_bank_a_burst (tests.test_bottle_aura_tdd.AuraAttackTests.test_idle_time_does_not_bank_a_burst) ... ok
+test_piercing_projectile_hits_each_instance_once_even_when_buffed (tests.test_bottle_aura_tdd.AuraAttackTests.test_piercing_projectile_hits_each_instance_once_even_when_buffed) ... ok
+test_projectile_damage_speed_distance_and_slow_are_not_multiplied (tests.test_bottle_aura_tdd.AuraAttackTests.test_projectile_damage_speed_distance_and_slow_are_not_multiplied) ... ok
+test_sun_has_no_delayed_burn_damage (tests.test_bottle_aura_tdd.AuraAttackTests.test_sun_has_no_delayed_burn_damage) ... ok
+test_buffed_beam_kill_rewards_once_clears_lock_and_wins (tests.test_bottle_aura_tdd.AuraIntegrationTests.test_buffed_beam_kill_rewards_once_clears_lock_and_wins) ... ok
+test_game_applies_aura_before_attacks_independent_of_list_order (tests.test_bottle_aura_tdd.AuraIntegrationTests.test_game_applies_aura_before_attacks_independent_of_list_order) ... ok
+test_preparation_pause_and_intermission_freeze_buffed_attacks (tests.test_bottle_aura_tdd.AuraIntegrationTests.test_preparation_pause_and_intermission_freeze_buffed_attacks) ... ok
+test_all_tower_kinds_can_receive_aura (tests.test_bottle_aura_tdd.AuraTopologyTests.test_all_tower_kinds_can_receive_aura) ... ok
+test_circle_boundary_and_diagonal_not_bounding_square (tests.test_bottle_aura_tdd.AuraTopologyTests.test_circle_boundary_and_diagonal_not_bounding_square) ... ok
+test_failed_upgrade_and_removed_recipient_never_get_buff (tests.test_bottle_aura_tdd.AuraTopologyTests.test_failed_upgrade_and_removed_recipient_never_get_buff) ... ok
+test_no_self_buff_but_two_bottles_can_support_each_other (tests.test_bottle_aura_tdd.AuraTopologyTests.test_no_self_buff_but_two_bottles_can_support_each_other) ... ok
+test_only_level_three_bottle_provides_aura (tests.test_bottle_aura_tdd.AuraTopologyTests.test_only_level_three_bottle_provides_aura) ... ok
+test_overlap_does_not_stack_and_survives_one_source_sale (tests.test_bottle_aura_tdd.AuraTopologyTests.test_overlap_does_not_stack_and_survives_one_source_sale) ... ok
+test_reset_does_not_retain_old_sources (tests.test_bottle_aura_tdd.AuraTopologyTests.test_reset_does_not_retain_old_sources) ... ok
+test_upgrade_and_sale_apply_immediately_without_resetting_cooldown (tests.test_bottle_aura_tdd.AuraTopologyTests.test_upgrade_and_sale_apply_immediately_without_resetting_cooldown) ... ok
+
+----------------------------------------------------------------------
+Ran 22 tests in 1.034s
+
+OK

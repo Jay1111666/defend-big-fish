@@ -1,0 +1,25 @@
+--- a/model.py
++++ b/model.py
+@@ -382,9 +382,7 @@
+                      if enemy.kind == 'boss' and enemy.status == 'alive'), None)
+ 
+     def can_build(self, pad):
+-        if isinstance(pad, bool):
+-            return False
+-        if not isinstance(pad, int) or not 0 <= pad < len(PADS):
++        if type(pad) is not int or not 0 <= pad < len(PADS):
+             return False
+         cell = (pad % COLS, pad // COLS)
+         land = self.layout.get('land_cells')
+@@ -408,9 +406,8 @@
+         return False
+ 
+     def build(self, kind, pad):
+-        if not isinstance(kind, str):
+-            return False
+-        if (self.state != 'playing' or kind not in TOWERS or not self.can_build(pad)
++        if (self.state != 'playing' or not isinstance(kind, str)
++                or kind not in TOWERS or not self.can_build(pad)
+                 or self.coins < TOWERS[kind]['cost']):
+             return False
+         self.coins -= TOWERS[kind]['cost']

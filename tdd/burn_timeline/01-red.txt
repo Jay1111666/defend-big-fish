@@ -1,0 +1,240 @@
+Stage: RED
+Executed: 2026-11-11T14:24:42.533947+00:00
+Command: python -B -m unittest -v tests.test_burn_tdd
+Tests SHA256: d1f2161b76fcb796318b76fa9a46b01419e0d634d98b9d6dd6c961e082500a48
+model.py SHA256: f1a67e0c4afc2dea89a3fc3216ae4676361a36d89b9e6a9e1061ef23f1dbfd5b
+config.py SHA256: 1d6fa5d8c05ae24aca93f3f304393fa3a224ccb2c546436f2271d8695c554846
+art.py SHA256: dfcd8ef4cc2a5733bd33895fb8fae0121e424edab22a7ee45be36613725d2350
+main.py SHA256: 3a6b04ece385b1a01e9131b850ee06e2a069c74ad4bf5b1b43c7c13af3b64c87
+Exit code: 1
+
+test_burn_death_rewards_once_clears_lock_and_completes_final_wave (tests.test_burn_tdd.BurnCombatTests.test_burn_death_rewards_once_clears_lock_and_completes_final_wave) ... ERROR
+test_preparation_pause_and_next_wave_control_burn_time (tests.test_burn_tdd.BurnCombatTests.test_preparation_pause_and_next_wave_control_burn_time) ... ERROR
+test_sun_applies_burn_after_direct_hit_and_scales_with_level (tests.test_burn_tdd.BurnCombatTests.test_sun_applies_burn_after_direct_hit_and_scales_with_level) ... 
+  test_sun_applies_burn_after_direct_hit_and_scales_with_level (tests.test_burn_tdd.BurnCombatTests.test_sun_applies_burn_after_direct_hit_and_scales_with_level) (level=1) ... ERROR
+  test_sun_applies_burn_after_direct_hit_and_scales_with_level (tests.test_burn_tdd.BurnCombatTests.test_sun_applies_burn_after_direct_hit_and_scales_with_level) (level=2) ... ERROR
+  test_sun_applies_burn_after_direct_hit_and_scales_with_level (tests.test_burn_tdd.BurnCombatTests.test_sun_applies_burn_after_direct_hit_and_scales_with_level) (level=3) ... ERROR
+test_escape_at_same_instant_as_tick_has_priority (tests.test_burn_tdd.BurnTimelineTests.test_escape_at_same_instant_as_tick_has_priority) ... ERROR
+test_expired_effect_reapplication_starts_new_tick (tests.test_burn_tdd.BurnTimelineTests.test_expired_effect_reapplication_starts_new_tick) ... ERROR
+test_first_tick_boundary_and_expiration_boundary (tests.test_burn_tdd.BurnTimelineTests.test_first_tick_boundary_and_expiration_boundary) ... ERROR
+test_invalid_effects_are_rejected_without_changing_state (tests.test_burn_tdd.BurnTimelineTests.test_invalid_effects_are_rejected_without_changing_state) ... 
+  test_invalid_effects_are_rejected_without_changing_state (tests.test_burn_tdd.BurnTimelineTests.test_invalid_effects_are_rejected_without_changing_state) (damage=0, duration=1) ... ERROR
+  test_invalid_effects_are_rejected_without_changing_state (tests.test_burn_tdd.BurnTimelineTests.test_invalid_effects_are_rejected_without_changing_state) (damage=-1, duration=1) ... ERROR
+  test_invalid_effects_are_rejected_without_changing_state (tests.test_burn_tdd.BurnTimelineTests.test_invalid_effects_are_rejected_without_changing_state) (damage=6, duration=0) ... ERROR
+  test_invalid_effects_are_rejected_without_changing_state (tests.test_burn_tdd.BurnTimelineTests.test_invalid_effects_are_rejected_without_changing_state) (damage=6, duration=-1) ... ERROR
+  test_invalid_effects_are_rejected_without_changing_state (tests.test_burn_tdd.BurnTimelineTests.test_invalid_effects_are_rejected_without_changing_state) (damage=nan, duration=1) ... ERROR
+  test_invalid_effects_are_rejected_without_changing_state (tests.test_burn_tdd.BurnTimelineTests.test_invalid_effects_are_rejected_without_changing_state) (damage=6, duration=inf) ... ERROR
+test_killing_tick_stops_movement_and_cannot_damage_again (tests.test_burn_tdd.BurnTimelineTests.test_killing_tick_stops_movement_and_cannot_damage_again) ... ERROR
+test_new_source_does_not_restart_shared_tick (tests.test_burn_tdd.BurnTimelineTests.test_new_source_does_not_restart_shared_tick) ... ERROR
+test_overlapping_equal_sources_do_not_multiply_damage (tests.test_burn_tdd.BurnTimelineTests.test_overlapping_equal_sources_do_not_multiply_damage) ... ERROR
+test_refresh_preserves_tick_schedule_and_uses_longer_duration (tests.test_burn_tdd.BurnTimelineTests.test_refresh_preserves_tick_schedule_and_uses_longer_duration) ... ERROR
+test_short_effect_expires_before_first_tick (tests.test_burn_tdd.BurnTimelineTests.test_short_effect_expires_before_first_tick) ... ERROR
+test_slow_expiration_burn_ticks_and_waypoints_are_frame_invariant (tests.test_burn_tdd.BurnTimelineTests.test_slow_expiration_burn_ticks_and_waypoints_are_frame_invariant) ... ERROR
+test_strongest_source_wins_and_weaker_source_resumes (tests.test_burn_tdd.BurnTimelineTests.test_strongest_source_wins_and_weaker_source_resumes) ... ERROR
+test_zero_elapsed_time_does_not_tick_or_move (tests.test_burn_tdd.BurnTimelineTests.test_zero_elapsed_time_does_not_tick_or_move) ... ERROR
+
+======================================================================
+ERROR: test_burn_death_rewards_once_clears_lock_and_completes_final_wave (tests.test_burn_tdd.BurnCombatTests.test_burn_death_rewards_once_clears_lock_and_completes_final_wave)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Jay\Desktop\protect carrot\tests\test_burn_tdd.py", line 186, in test_burn_death_rewards_once_clears_lock_and_completes_final_wave
+    enemy.apply_burn('sun-a', 6, 1)
+    ^^^^^^^^^^^^^^^^
+AttributeError: 'Enemy' object has no attribute 'apply_burn'
+
+======================================================================
+ERROR: test_preparation_pause_and_next_wave_control_burn_time (tests.test_burn_tdd.BurnCombatTests.test_preparation_pause_and_next_wave_control_burn_time)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Jay\Desktop\protect carrot\tests\test_burn_tdd.py", line 167, in test_preparation_pause_and_next_wave_control_burn_time
+    enemy.apply_burn('sun-a', 6, 3)
+    ^^^^^^^^^^^^^^^^
+AttributeError: 'Enemy' object has no attribute 'apply_burn'
+
+======================================================================
+ERROR: test_sun_applies_burn_after_direct_hit_and_scales_with_level (tests.test_burn_tdd.BurnCombatTests.test_sun_applies_burn_after_direct_hit_and_scales_with_level) (level=1)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Jay\Desktop\protect carrot\tests\test_burn_tdd.py", line 155, in test_sun_applies_burn_after_direct_hit_and_scales_with_level
+    self.assertIsNotNone(enemy.active_burn)
+                         ^^^^^^^^^^^^^^^^^
+AttributeError: 'Enemy' object has no attribute 'active_burn'. Did you mean: 'active_slow'?
+
+======================================================================
+ERROR: test_sun_applies_burn_after_direct_hit_and_scales_with_level (tests.test_burn_tdd.BurnCombatTests.test_sun_applies_burn_after_direct_hit_and_scales_with_level) (level=2)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Jay\Desktop\protect carrot\tests\test_burn_tdd.py", line 155, in test_sun_applies_burn_after_direct_hit_and_scales_with_level
+    self.assertIsNotNone(enemy.active_burn)
+                         ^^^^^^^^^^^^^^^^^
+AttributeError: 'Enemy' object has no attribute 'active_burn'. Did you mean: 'active_slow'?
+
+======================================================================
+ERROR: test_sun_applies_burn_after_direct_hit_and_scales_with_level (tests.test_burn_tdd.BurnCombatTests.test_sun_applies_burn_after_direct_hit_and_scales_with_level) (level=3)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Jay\Desktop\protect carrot\tests\test_burn_tdd.py", line 155, in test_sun_applies_burn_after_direct_hit_and_scales_with_level
+    self.assertIsNotNone(enemy.active_burn)
+                         ^^^^^^^^^^^^^^^^^
+AttributeError: 'Enemy' object has no attribute 'active_burn'. Did you mean: 'active_slow'?
+
+======================================================================
+ERROR: test_escape_at_same_instant_as_tick_has_priority (tests.test_burn_tdd.BurnTimelineTests.test_escape_at_same_instant_as_tick_has_priority)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Jay\Desktop\protect carrot\tests\test_burn_tdd.py", line 114, in test_escape_at_same_instant_as_tick_has_priority
+    enemy.apply_burn('sun-a', 6, 1)
+    ^^^^^^^^^^^^^^^^
+AttributeError: 'Enemy' object has no attribute 'apply_burn'
+
+======================================================================
+ERROR: test_expired_effect_reapplication_starts_new_tick (tests.test_burn_tdd.BurnTimelineTests.test_expired_effect_reapplication_starts_new_tick)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Jay\Desktop\protect carrot\tests\test_burn_tdd.py", line 80, in test_expired_effect_reapplication_starts_new_tick
+    enemy.apply_burn('sun-a', 6, .5)
+    ^^^^^^^^^^^^^^^^
+AttributeError: 'Enemy' object has no attribute 'apply_burn'
+
+======================================================================
+ERROR: test_first_tick_boundary_and_expiration_boundary (tests.test_burn_tdd.BurnTimelineTests.test_first_tick_boundary_and_expiration_boundary)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Jay\Desktop\protect carrot\tests\test_burn_tdd.py", line 21, in test_first_tick_boundary_and_expiration_boundary
+    enemy.apply_burn('sun-a', 6, 3)
+    ^^^^^^^^^^^^^^^^
+AttributeError: 'Enemy' object has no attribute 'apply_burn'
+
+======================================================================
+ERROR: test_invalid_effects_are_rejected_without_changing_state (tests.test_burn_tdd.BurnTimelineTests.test_invalid_effects_are_rejected_without_changing_state) (damage=0, duration=1)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Jay\Desktop\protect carrot\tests\test_burn_tdd.py", line 93, in test_invalid_effects_are_rejected_without_changing_state
+    enemy.apply_burn('sun-a', damage, duration)
+    ^^^^^^^^^^^^^^^^
+AttributeError: 'Enemy' object has no attribute 'apply_burn'
+
+======================================================================
+ERROR: test_invalid_effects_are_rejected_without_changing_state (tests.test_burn_tdd.BurnTimelineTests.test_invalid_effects_are_rejected_without_changing_state) (damage=-1, duration=1)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Jay\Desktop\protect carrot\tests\test_burn_tdd.py", line 93, in test_invalid_effects_are_rejected_without_changing_state
+    enemy.apply_burn('sun-a', damage, duration)
+    ^^^^^^^^^^^^^^^^
+AttributeError: 'Enemy' object has no attribute 'apply_burn'
+
+======================================================================
+ERROR: test_invalid_effects_are_rejected_without_changing_state (tests.test_burn_tdd.BurnTimelineTests.test_invalid_effects_are_rejected_without_changing_state) (damage=6, duration=0)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Jay\Desktop\protect carrot\tests\test_burn_tdd.py", line 93, in test_invalid_effects_are_rejected_without_changing_state
+    enemy.apply_burn('sun-a', damage, duration)
+    ^^^^^^^^^^^^^^^^
+AttributeError: 'Enemy' object has no attribute 'apply_burn'
+
+======================================================================
+ERROR: test_invalid_effects_are_rejected_without_changing_state (tests.test_burn_tdd.BurnTimelineTests.test_invalid_effects_are_rejected_without_changing_state) (damage=6, duration=-1)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Jay\Desktop\protect carrot\tests\test_burn_tdd.py", line 93, in test_invalid_effects_are_rejected_without_changing_state
+    enemy.apply_burn('sun-a', damage, duration)
+    ^^^^^^^^^^^^^^^^
+AttributeError: 'Enemy' object has no attribute 'apply_burn'
+
+======================================================================
+ERROR: test_invalid_effects_are_rejected_without_changing_state (tests.test_burn_tdd.BurnTimelineTests.test_invalid_effects_are_rejected_without_changing_state) (damage=nan, duration=1)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Jay\Desktop\protect carrot\tests\test_burn_tdd.py", line 93, in test_invalid_effects_are_rejected_without_changing_state
+    enemy.apply_burn('sun-a', damage, duration)
+    ^^^^^^^^^^^^^^^^
+AttributeError: 'Enemy' object has no attribute 'apply_burn'
+
+======================================================================
+ERROR: test_invalid_effects_are_rejected_without_changing_state (tests.test_burn_tdd.BurnTimelineTests.test_invalid_effects_are_rejected_without_changing_state) (damage=6, duration=inf)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Jay\Desktop\protect carrot\tests\test_burn_tdd.py", line 93, in test_invalid_effects_are_rejected_without_changing_state
+    enemy.apply_burn('sun-a', damage, duration)
+    ^^^^^^^^^^^^^^^^
+AttributeError: 'Enemy' object has no attribute 'apply_burn'
+
+======================================================================
+ERROR: test_killing_tick_stops_movement_and_cannot_damage_again (tests.test_burn_tdd.BurnTimelineTests.test_killing_tick_stops_movement_and_cannot_damage_again)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Jay\Desktop\protect carrot\tests\test_burn_tdd.py", line 101, in test_killing_tick_stops_movement_and_cannot_damage_again
+    enemy.apply_burn('sun-a', 6, 3)
+    ^^^^^^^^^^^^^^^^
+AttributeError: 'Enemy' object has no attribute 'apply_burn'
+
+======================================================================
+ERROR: test_new_source_does_not_restart_shared_tick (tests.test_burn_tdd.BurnTimelineTests.test_new_source_does_not_restart_shared_tick)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Jay\Desktop\protect carrot\tests\test_burn_tdd.py", line 72, in test_new_source_does_not_restart_shared_tick
+    enemy.apply_burn('sun-a', 4, 2)
+    ^^^^^^^^^^^^^^^^
+AttributeError: 'Enemy' object has no attribute 'apply_burn'
+
+======================================================================
+ERROR: test_overlapping_equal_sources_do_not_multiply_damage (tests.test_burn_tdd.BurnTimelineTests.test_overlapping_equal_sources_do_not_multiply_damage)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Jay\Desktop\protect carrot\tests\test_burn_tdd.py", line 65, in test_overlapping_equal_sources_do_not_multiply_damage
+    enemy.apply_burn('sun-a', 6, 1)
+    ^^^^^^^^^^^^^^^^
+AttributeError: 'Enemy' object has no attribute 'apply_burn'
+
+======================================================================
+ERROR: test_refresh_preserves_tick_schedule_and_uses_longer_duration (tests.test_burn_tdd.BurnTimelineTests.test_refresh_preserves_tick_schedule_and_uses_longer_duration)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Jay\Desktop\protect carrot\tests\test_burn_tdd.py", line 41, in test_refresh_preserves_tick_schedule_and_uses_longer_duration
+    enemy.apply_burn('sun-a', 6, 1)
+    ^^^^^^^^^^^^^^^^
+AttributeError: 'Enemy' object has no attribute 'apply_burn'
+
+======================================================================
+ERROR: test_short_effect_expires_before_first_tick (tests.test_burn_tdd.BurnTimelineTests.test_short_effect_expires_before_first_tick)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Jay\Desktop\protect carrot\tests\test_burn_tdd.py", line 34, in test_short_effect_expires_before_first_tick
+    enemy.apply_burn('sun-a', 6, .3)
+    ^^^^^^^^^^^^^^^^
+AttributeError: 'Enemy' object has no attribute 'apply_burn'
+
+======================================================================
+ERROR: test_slow_expiration_burn_ticks_and_waypoints_are_frame_invariant (tests.test_burn_tdd.BurnTimelineTests.test_slow_expiration_burn_ticks_and_waypoints_are_frame_invariant)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Jay\Desktop\protect carrot\tests\test_burn_tdd.py", line 129, in test_slow_expiration_burn_ticks_and_waypoints_are_frame_invariant
+    whole, frames = simulate([2]), simulate([.01] * 200)
+                    ~~~~~~~~^^^^^
+  File "C:\Users\Jay\Desktop\protect carrot\tests\test_burn_tdd.py", line 124, in simulate
+    enemy.apply_burn('weak', 4, 2)
+    ^^^^^^^^^^^^^^^^
+AttributeError: 'Enemy' object has no attribute 'apply_burn'
+
+======================================================================
+ERROR: test_strongest_source_wins_and_weaker_source_resumes (tests.test_burn_tdd.BurnTimelineTests.test_strongest_source_wins_and_weaker_source_resumes)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Jay\Desktop\protect carrot\tests\test_burn_tdd.py", line 54, in test_strongest_source_wins_and_weaker_source_resumes
+    enemy.apply_burn('weak', 4, 2)
+    ^^^^^^^^^^^^^^^^
+AttributeError: 'Enemy' object has no attribute 'apply_burn'
+
+======================================================================
+ERROR: test_zero_elapsed_time_does_not_tick_or_move (tests.test_burn_tdd.BurnTimelineTests.test_zero_elapsed_time_does_not_tick_or_move)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Jay\Desktop\protect carrot\tests\test_burn_tdd.py", line 140, in test_zero_elapsed_time_does_not_tick_or_move
+    enemy.apply_burn('sun-a', 6, 1)
+    ^^^^^^^^^^^^^^^^
+AttributeError: 'Enemy' object has no attribute 'apply_burn'
+
+----------------------------------------------------------------------
+Ran 15 tests in 1.092s
+
+FAILED (errors=22)

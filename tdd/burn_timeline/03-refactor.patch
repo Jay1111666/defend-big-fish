@@ -1,0 +1,69 @@
+--- a/model.py
++++ b/model.py
+@@ -118,42 +118,44 @@
+     def update(self, dt):
+         if self.status != 'alive':
+             return
+-        # 分段积分，准确处理减速在本帧中途过期。
++        # 在减速到期、灼烧到期或伤害时刻切分时间，避免帧长改变结算。
+         remaining = dt
+         while remaining > 1e-9 and self.status == 'alive':
+-            step = min([remaining] + [effect.remaining for effect in self.slows]
+-                       + [effect.remaining for effect in self.burns]
+-                       + ([self.burn_timer] if self.burns else []))
++            deadlines = [effect.remaining for effect in [*self.slows, *self.burns]]
++            if self.burns:
++                deadlines.append(self.burn_timer)
++            step = min([remaining, *deadlines])
+             active = self.active_slow
+             factor = active.multiplier if active else 1.0
+-            distance = self.speed * factor * step
+-            while distance > 0 and self.next_waypoint < len(self.path):
+-                offset = pygame.Vector2(self.path[self.next_waypoint]) - self.position
+-                length = offset.length()
+-                travel = min(distance, length)
+-                if length:
+-                    self.position += offset * (travel / length)
+-                self.progress += travel
+-                distance -= travel
+-                if travel >= length:
+-                    self.next_waypoint += 1
+-                else:
+-                    break
+-            if self.next_waypoint == len(self.path):
+-                self.status = 'escaped'
++            self._move(self.speed * factor * step)
+             if self.burns:
+                 self.burn_timer -= step
+                 if self.burn_timer <= 1e-9:
+                     if self.status == 'alive':
++                        # 同时到期的效果参与最后一跳伤害，再移除。
+                         self.take_damage(self.active_burn.damage)
+                     self.burn_timer = self.BURN_INTERVAL
+-            for effect in self.burns:
++            for effect in [*self.slows, *self.burns]:
+                 effect.remaining -= step
+             self.burns = [effect for effect in self.burns if effect.remaining > 1e-9]
+-            for effect in self.slows:
+-                effect.remaining -= step
+             self.slows = [effect for effect in self.slows if effect.remaining > 1e-9]
+             remaining -= step
++
++    def _move(self, distance):
++        while distance > 0 and self.next_waypoint < len(self.path):
++            offset = pygame.Vector2(self.path[self.next_waypoint]) - self.position
++            length = offset.length()
++            travel = min(distance, length)
++            if length:
++                self.position += offset * (travel / length)
++            self.progress += travel
++            distance -= travel
++            if travel >= length:
++                self.next_waypoint += 1
++            else:
++                break
++        if self.next_waypoint == len(self.path):
++            self.status = 'escaped'
+ 
+ 
+ @dataclass

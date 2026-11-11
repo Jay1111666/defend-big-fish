@@ -1,0 +1,100 @@
+--- a/model.py
++++ b/model.py
+@@ -1,5 +1,6 @@
+ """战斗逻辑与渲染分离，支持无窗口模拟。"""
+ from dataclasses import dataclass
++import math
+ import pygame
+ from config import PATH, PADS, COLS, TILE, OBSTACLE_STATS, TOWERS, ENEMIES, level_config
+ 
+@@ -53,7 +54,16 @@
+     remaining: float
+ 
+ 
++@dataclass
++class BurnEffect:
++    source: object
++    damage: float
++    remaining: float
++
++
+ class Enemy(AttackTarget):
++    BURN_INTERVAL = .5
++
+     def __init__(self, kind, hp_scale=1, path=None):
+         spec = ENEMIES[kind]
+         self.path = PATH if path is None else path
+@@ -66,6 +76,24 @@
+         self.next_waypoint = 1
+         self.progress = 0.0
+         self.slows = []
++        self.burns = []
++        self.burn_timer = self.BURN_INTERVAL
++
++    @property
++    def active_burn(self):
++        return max(self.burns, key=lambda effect: effect.damage, default=None)
++
++    def apply_burn(self, source, damage, duration):
++        if not all(math.isfinite(value) and value > 0 for value in (damage, duration)):
++            return
++        for effect in self.burns:
++            if effect.source == source:
++                effect.damage = max(effect.damage, damage)
++                effect.remaining = max(effect.remaining, duration)
++                return
++        if not self.burns:
++            self.burn_timer = self.BURN_INTERVAL
++        self.burns.append(BurnEffect(source, damage, duration))
+ 
+     @property
+     def active_slow(self):
+@@ -93,7 +121,9 @@
+         # 分段积分，准确处理减速在本帧中途过期。
+         remaining = dt
+         while remaining > 1e-9 and self.status == 'alive':
+-            step = min([remaining] + [effect.remaining for effect in self.slows])
++            step = min([remaining] + [effect.remaining for effect in self.slows]
++                       + [effect.remaining for effect in self.burns]
++                       + ([self.burn_timer] if self.burns else []))
+             active = self.active_slow
+             factor = active.multiplier if active else 1.0
+             distance = self.speed * factor * step
+@@ -111,6 +141,15 @@
+                     break
+             if self.next_waypoint == len(self.path):
+                 self.status = 'escaped'
++            if self.burns:
++                self.burn_timer -= step
++                if self.burn_timer <= 1e-9:
++                    if self.status == 'alive':
++                        self.take_damage(self.active_burn.damage)
++                    self.burn_timer = self.BURN_INTERVAL
++            for effect in self.burns:
++                effect.remaining -= step
++            self.burns = [effect for effect in self.burns if effect.remaining > 1e-9]
+             for effect in self.slows:
+                 effect.remaining -= step
+             self.slows = [effect for effect in self.slows if effect.remaining > 1e-9]
+@@ -288,6 +327,9 @@
+             for victim in [*enemies, *obstacles]:
+                 if victim.status == 'alive' and in_range(self.position, victim, self.radius):
+                     victim.take_damage(damage)
++                    if isinstance(victim, Enemy) and victim.status == 'alive':
++                        victim.apply_burn(self, spec['burn_damage'] * (1 + .65 * (self.level - 1)),
++                                          spec['burn_duration'])
+             effects.append(Effect('sun', tuple(self.position), tuple(self.position), self.radius, .55))
+         elif self.kind in ('bottle', 'star'):
+             effects.append(Projectile(self.kind, launch_point, target, damage,
+--- a/config.py
++++ b/config.py
+@@ -301,7 +301,8 @@
+     'star': dict(name='星星', subtitle='星芒冲击 · 单体溅射', cost=130,
+                  damage=30, splash_damage=12, splash_radius=76,
+                  interval=.95, radius=165, color=(255, 220, 100)),
+-    'sun': dict(name='太阳', subtitle='日冕脉冲 · 周身群伤', cost=140,
++    'sun': dict(name='太阳', subtitle='日冕灼烧 · 周身群伤', cost=140,
++                burn_damage=6, burn_duration=3,
+                 damage=20, interval=1.05, radius=128, radius_step=8, color=(255, 176, 62)),
+     'magic': dict(name='魔法球', subtitle='持续激光 · 单体锁定', cost=160,
+                   damage=60, interval=1, radius=175, color=(187, 97, 255)),

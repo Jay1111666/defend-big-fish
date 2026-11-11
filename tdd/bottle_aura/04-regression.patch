@@ -1,0 +1,54 @@
+--- a/main.py
++++ b/main.py
+@@ -122,6 +122,11 @@
+         if radius:
+             pygame.draw.circle(overlay, (224, 255, 213, 32), (x, y), radius)
+             pygame.draw.circle(overlay, (241, 255, 216, 150), (x, y), radius, 2)
++        if self.selected and self.selected.aura_radius:
++            pygame.draw.circle(overlay, (255, 204, 82, 190), (x, y), self.selected.aura_radius, 3)
++            for other in self.game.towers:
++                if self.selected.supports(other):
++                    pygame.draw.circle(overlay, (255, 213, 92, 210), other.position, 32, 2)
+         pygame.draw.rect(overlay, (255, 255, 255, 245), (x - 30, y - 30, 60, 60), 3, 12)
+         s.blit(overlay, (0, 0))
+         if self.build_pad is not None:
+@@ -135,7 +140,7 @@
+         pad = self.selected.pad if self.selected else self.build_pad
+         x, y = PADS[pad]
+         width = 6 + 98 * len(TOWERS) if self.build_pad is not None else 300
+-        height = 155 if self.build_pad is not None else 118
++        height = 155 if self.build_pad is not None else 142
+         left = max(26, min(WIDTH - width - 26, x - width / 2))
+         top = y + 45
+         if top + height > 715:
+@@ -160,8 +165,15 @@
+             t = self.selected
+             text(s, f'{TOWERS[t.kind]["name"]}  Lv.{t.level}', (left + 16, top + 10), 20, PLUM, bold=True)
+             text(s, f'射程 {t.radius}  ·  最高三级', (left + 16, top + 41), 13, MUTED)
+-            self.button((left + 12, top + 69, 134, 35), f'升级 {t.upgrade_cost}' if t.level < 3 else '已满级', 'upgrade', t.level < 3 and g.coins >= t.upgrade_cost, size=15)
+-            self.button((left + 155, top + 69, 132, 35), f'出售 +{int(t.spent * .7)}', 'sell', color=(144, 114, 164), size=15)
++            if t.kind == 'bottle':
++                detail = '满级光环：周围 160 像素攻速 +25%'
++            elif g.attack_speed_for(t) > 1:
++                detail = '光环加成：激光伤害 +25%' if t.kind == 'magic' else '光环加成：攻击速度 +25%'
++            else:
++                detail = TOWERS[t.kind]['subtitle']
++            text(s, detail, (left + 16, top + 65), 13, (146, 102, 35))
++            self.button((left + 12, top + 94, 134, 35), f'升级 {t.upgrade_cost}' if t.level < 3 else '已满级', 'upgrade', t.level < 3 and g.coins >= t.upgrade_cost, size=15)
++            self.button((left + 155, top + 94, 132, 35), f'出售 +{int(t.spent * .7)}', 'sell', color=(144, 114, 164), size=15)
+ 
+     def draw_modal(self):
+         g, s = self.game, self.screen
+@@ -275,8 +287,12 @@
+         for tower in g.towers:
+             x, y = tower.position
+             pygame.draw.ellipse(s, (140, 112, 163), (x - 25, y + 18, 50, 14))
++            if tower.aura_radius:
++                pygame.draw.ellipse(s, (255, 208, 85), (x - 29, y + 14, 58, 20), 3)
+             kick = 6 * tower.recoil / tower.RECOIL_TIME
+             self.art.turret(s, tower.kind, (x, y), tower.aim_angle, kick)
++            if g.attack_speed_for(tower) > 1:
++                text(s, '+25%', (x, y - 36), 13, (255, 245, 153), True, True)
+             for i in range(tower.level):
+                 star(s, (x + (i - (tower.level - 1) / 2) * 12, y + 32), 5, (255, 235, 147))
+         hx, hy = g.path[-1]

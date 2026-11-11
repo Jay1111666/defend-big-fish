@@ -1,0 +1,30 @@
+Stage: REFACTOR
+Executed: 2026-11-11T14:26:06.414975+00:00
+Command: python -B -m unittest -v tests.test_burn_tdd
+Tests SHA256: d1f2161b76fcb796318b76fa9a46b01419e0d634d98b9d6dd6c961e082500a48
+model.py SHA256: 990ffe9f0ef6a378300ad35070ddd5de157debc14443c6a7256607afe9d5a186
+config.py SHA256: be0b99e91434fa41022f1bbe016920cd7a6c6146b22c31bde01967a41175f916
+art.py SHA256: dfcd8ef4cc2a5733bd33895fb8fae0121e424edab22a7ee45be36613725d2350
+main.py SHA256: 3a6b04ece385b1a01e9131b850ee06e2a069c74ad4bf5b1b43c7c13af3b64c87
+Exit code: 0
+
+test_burn_death_rewards_once_clears_lock_and_completes_final_wave (tests.test_burn_tdd.BurnCombatTests.test_burn_death_rewards_once_clears_lock_and_completes_final_wave) ... ok
+test_preparation_pause_and_next_wave_control_burn_time (tests.test_burn_tdd.BurnCombatTests.test_preparation_pause_and_next_wave_control_burn_time) ... ok
+test_sun_applies_burn_after_direct_hit_and_scales_with_level (tests.test_burn_tdd.BurnCombatTests.test_sun_applies_burn_after_direct_hit_and_scales_with_level) ... ok
+test_escape_at_same_instant_as_tick_has_priority (tests.test_burn_tdd.BurnTimelineTests.test_escape_at_same_instant_as_tick_has_priority) ... ok
+test_expired_effect_reapplication_starts_new_tick (tests.test_burn_tdd.BurnTimelineTests.test_expired_effect_reapplication_starts_new_tick) ... ok
+test_first_tick_boundary_and_expiration_boundary (tests.test_burn_tdd.BurnTimelineTests.test_first_tick_boundary_and_expiration_boundary) ... ok
+test_invalid_effects_are_rejected_without_changing_state (tests.test_burn_tdd.BurnTimelineTests.test_invalid_effects_are_rejected_without_changing_state) ... ok
+test_killing_tick_stops_movement_and_cannot_damage_again (tests.test_burn_tdd.BurnTimelineTests.test_killing_tick_stops_movement_and_cannot_damage_again) ... ok
+test_new_source_does_not_restart_shared_tick (tests.test_burn_tdd.BurnTimelineTests.test_new_source_does_not_restart_shared_tick) ... ok
+test_overlapping_equal_sources_do_not_multiply_damage (tests.test_burn_tdd.BurnTimelineTests.test_overlapping_equal_sources_do_not_multiply_damage) ... ok
+test_refresh_preserves_tick_schedule_and_uses_longer_duration (tests.test_burn_tdd.BurnTimelineTests.test_refresh_preserves_tick_schedule_and_uses_longer_duration) ... ok
+test_short_effect_expires_before_first_tick (tests.test_burn_tdd.BurnTimelineTests.test_short_effect_expires_before_first_tick) ... ok
+test_slow_expiration_burn_ticks_and_waypoints_are_frame_invariant (tests.test_burn_tdd.BurnTimelineTests.test_slow_expiration_burn_ticks_and_waypoints_are_frame_invariant) ... ok
+test_strongest_source_wins_and_weaker_source_resumes (tests.test_burn_tdd.BurnTimelineTests.test_strongest_source_wins_and_weaker_source_resumes) ... ok
+test_zero_elapsed_time_does_not_tick_or_move (tests.test_burn_tdd.BurnTimelineTests.test_zero_elapsed_time_does_not_tick_or_move) ... ok
+
+----------------------------------------------------------------------
+Ran 15 tests in 1.036s
+
+OK

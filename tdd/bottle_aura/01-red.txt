@@ -1,0 +1,858 @@
+Stage: 01-red
+UTC: 2026-11-11T14:52:04.750893+00:00
+Command: ['C:\\Users\\Jay\\Desktop\\protect carrot\\.venv\\Scripts\\python.exe', '-m', 'unittest', 'tests.test_bottle_aura_tdd', '-v']
+model.py: 633f8773fe5dfe7c49ac8e103ad9f88ac2b821c646dfbd7a47829c597a4fb2b0
+config.py: 2a450e7fa79cd0d2a4ac45426638965581751ac7b3ade591103549826e62be99
+art.py: a81afcea2522540987a8b32403c2534df524a49da53f9f2347c6369eed661b21
+main.py: 3a6b04ece385b1a01e9131b850ee06e2a069c74ad4bf5b1b43c7c13af3b64c87
+tests/test_bottle_aura_tdd.py: 574ded1a6a8e65875c792448bf747a11577ffc843d15a5ed13e2fc2128ade91b
+Exit: 1
+
+test_aoe_damage_radius_and_moon_slow_duration_stay_unchanged (tests.test_bottle_aura_tdd.AuraAttackTests.test_aoe_damage_radius_and_moon_slow_duration_stay_unchanged) ... 
+  test_aoe_damage_radius_and_moon_slow_duration_stay_unchanged (tests.test_bottle_aura_tdd.AuraAttackTests.test_aoe_damage_radius_and_moon_slow_duration_stay_unchanged) (kind='sun') ... ERROR
+  test_aoe_damage_radius_and_moon_slow_duration_stay_unchanged (tests.test_bottle_aura_tdd.AuraAttackTests.test_aoe_damage_radius_and_moon_slow_duration_stay_unchanged) (kind='moon') ... ERROR
+  test_aoe_damage_radius_and_moon_slow_duration_stay_unchanged (tests.test_bottle_aura_tdd.AuraAttackTests.test_aoe_damage_radius_and_moon_slow_duration_stay_unchanged) (kind='arrow') ... ERROR
+test_beam_damage_scales_with_level_and_real_elapsed_time (tests.test_bottle_aura_tdd.AuraAttackTests.test_beam_damage_scales_with_level_and_real_elapsed_time) ... 
+  test_beam_damage_scales_with_level_and_real_elapsed_time (tests.test_bottle_aura_tdd.AuraAttackTests.test_beam_damage_scales_with_level_and_real_elapsed_time) (level=1) ... ERROR
+  test_beam_damage_scales_with_level_and_real_elapsed_time (tests.test_bottle_aura_tdd.AuraAttackTests.test_beam_damage_scales_with_level_and_real_elapsed_time) (level=2) ... ERROR
+  test_beam_damage_scales_with_level_and_real_elapsed_time (tests.test_bottle_aura_tdd.AuraAttackTests.test_beam_damage_scales_with_level_and_real_elapsed_time) (level=3) ... ERROR
+test_beam_dynamic_buff_and_frame_partition_keep_same_damage (tests.test_bottle_aura_tdd.AuraAttackTests.test_beam_dynamic_buff_and_frame_partition_keep_same_damage) ... ERROR
+test_beam_keeps_lock_and_stops_outside_range_or_on_death (tests.test_bottle_aura_tdd.AuraAttackTests.test_beam_keeps_lock_and_stops_outside_range_or_on_death) ... ERROR
+test_beam_manual_obstacle_target_also_gets_dps_bonus (tests.test_bottle_aura_tdd.AuraAttackTests.test_beam_manual_obstacle_target_also_gets_dps_bonus) ... ERROR
+test_buff_added_and_removed_mid_cooldown_preserves_completed_work (tests.test_bottle_aura_tdd.AuraAttackTests.test_buff_added_and_removed_mid_cooldown_preserves_completed_work) ... ERROR
+test_every_periodic_tower_fires_at_shorter_interval_for_all_levels (tests.test_bottle_aura_tdd.AuraAttackTests.test_every_periodic_tower_fires_at_shorter_interval_for_all_levels) ... 
+  test_every_periodic_tower_fires_at_shorter_interval_for_all_levels (tests.test_bottle_aura_tdd.AuraAttackTests.test_every_periodic_tower_fires_at_shorter_interval_for_all_levels) (kind='bottle', level=1) ... ERROR
+  test_every_periodic_tower_fires_at_shorter_interval_for_all_levels (tests.test_bottle_aura_tdd.AuraAttackTests.test_every_periodic_tower_fires_at_shorter_interval_for_all_levels) (kind='bottle', level=2) ... ERROR
+  test_every_periodic_tower_fires_at_shorter_interval_for_all_levels (tests.test_bottle_aura_tdd.AuraAttackTests.test_every_periodic_tower_fires_at_shorter_interval_for_all_levels) (kind='bottle', level=3) ... ERROR
+  test_every_periodic_tower_fires_at_shorter_interval_for_all_levels (tests.test_bottle_aura_tdd.AuraAttackTests.test_every_periodic_tower_fires_at_shorter_interval_for_all_levels) (kind='moon', level=1) ... ERROR
+  test_every_periodic_tower_fires_at_shorter_interval_for_all_levels (tests.test_bottle_aura_tdd.AuraAttackTests.test_every_periodic_tower_fires_at_shorter_interval_for_all_levels) (kind='moon', level=2) ... ERROR
+  test_every_periodic_tower_fires_at_shorter_interval_for_all_levels (tests.test_bottle_aura_tdd.AuraAttackTests.test_every_periodic_tower_fires_at_shorter_interval_for_all_levels) (kind='moon', level=3) ... ERROR
+  test_every_periodic_tower_fires_at_shorter_interval_for_all_levels (tests.test_bottle_aura_tdd.AuraAttackTests.test_every_periodic_tower_fires_at_shorter_interval_for_all_levels) (kind='arrow', level=1) ... ERROR
+  test_every_periodic_tower_fires_at_shorter_interval_for_all_levels (tests.test_bottle_aura_tdd.AuraAttackTests.test_every_periodic_tower_fires_at_shorter_interval_for_all_levels) (kind='arrow', level=2) ... ERROR
+  test_every_periodic_tower_fires_at_shorter_interval_for_all_levels (tests.test_bottle_aura_tdd.AuraAttackTests.test_every_periodic_tower_fires_at_shorter_interval_for_all_levels) (kind='arrow', level=3) ... ERROR
+  test_every_periodic_tower_fires_at_shorter_interval_for_all_levels (tests.test_bottle_aura_tdd.AuraAttackTests.test_every_periodic_tower_fires_at_shorter_interval_for_all_levels) (kind='star', level=1) ... ERROR
+  test_every_periodic_tower_fires_at_shorter_interval_for_all_levels (tests.test_bottle_aura_tdd.AuraAttackTests.test_every_periodic_tower_fires_at_shorter_interval_for_all_levels) (kind='star', level=2) ... ERROR
+  test_every_periodic_tower_fires_at_shorter_interval_for_all_levels (tests.test_bottle_aura_tdd.AuraAttackTests.test_every_periodic_tower_fires_at_shorter_interval_for_all_levels) (kind='star', level=3) ... ERROR
+  test_every_periodic_tower_fires_at_shorter_interval_for_all_levels (tests.test_bottle_aura_tdd.AuraAttackTests.test_every_periodic_tower_fires_at_shorter_interval_for_all_levels) (kind='sun', level=1) ... ERROR
+  test_every_periodic_tower_fires_at_shorter_interval_for_all_levels (tests.test_bottle_aura_tdd.AuraAttackTests.test_every_periodic_tower_fires_at_shorter_interval_for_all_levels) (kind='sun', level=2) ... ERROR
+  test_every_periodic_tower_fires_at_shorter_interval_for_all_levels (tests.test_bottle_aura_tdd.AuraAttackTests.test_every_periodic_tower_fires_at_shorter_interval_for_all_levels) (kind='sun', level=3) ... ERROR
+  test_every_periodic_tower_fires_at_shorter_interval_for_all_levels (tests.test_bottle_aura_tdd.AuraAttackTests.test_every_periodic_tower_fires_at_shorter_interval_for_all_levels) (kind='fan', level=1) ... ERROR
+  test_every_periodic_tower_fires_at_shorter_interval_for_all_levels (tests.test_bottle_aura_tdd.AuraAttackTests.test_every_periodic_tower_fires_at_shorter_interval_for_all_levels) (kind='fan', level=2) ... ERROR
+  test_every_periodic_tower_fires_at_shorter_interval_for_all_levels (tests.test_bottle_aura_tdd.AuraAttackTests.test_every_periodic_tower_fires_at_shorter_interval_for_all_levels) (kind='fan', level=3) ... ERROR
+  test_every_periodic_tower_fires_at_shorter_interval_for_all_levels (tests.test_bottle_aura_tdd.AuraAttackTests.test_every_periodic_tower_fires_at_shorter_interval_for_all_levels) (kind='rocket', level=1) ... ERROR
+  test_every_periodic_tower_fires_at_shorter_interval_for_all_levels (tests.test_bottle_aura_tdd.AuraAttackTests.test_every_periodic_tower_fires_at_shorter_interval_for_all_levels) (kind='rocket', level=2) ... ERROR
+  test_every_periodic_tower_fires_at_shorter_interval_for_all_levels (tests.test_bottle_aura_tdd.AuraAttackTests.test_every_periodic_tower_fires_at_shorter_interval_for_all_levels) (kind='rocket', level=3) ... ERROR
+test_idle_time_does_not_bank_a_burst (tests.test_bottle_aura_tdd.AuraAttackTests.test_idle_time_does_not_bank_a_burst) ... ERROR
+test_piercing_projectile_hits_each_instance_once_even_when_buffed (tests.test_bottle_aura_tdd.AuraAttackTests.test_piercing_projectile_hits_each_instance_once_even_when_buffed) ... 
+  test_piercing_projectile_hits_each_instance_once_even_when_buffed (tests.test_bottle_aura_tdd.AuraAttackTests.test_piercing_projectile_hits_each_instance_once_even_when_buffed) (kind='fan') ... ERROR
+  test_piercing_projectile_hits_each_instance_once_even_when_buffed (tests.test_bottle_aura_tdd.AuraAttackTests.test_piercing_projectile_hits_each_instance_once_even_when_buffed) (kind='rocket') ... ERROR
+test_projectile_damage_speed_distance_and_slow_are_not_multiplied (tests.test_bottle_aura_tdd.AuraAttackTests.test_projectile_damage_speed_distance_and_slow_are_not_multiplied) ... 
+  test_projectile_damage_speed_distance_and_slow_are_not_multiplied (tests.test_bottle_aura_tdd.AuraAttackTests.test_projectile_damage_speed_distance_and_slow_are_not_multiplied) (kind='bottle') ... ERROR
+  test_projectile_damage_speed_distance_and_slow_are_not_multiplied (tests.test_bottle_aura_tdd.AuraAttackTests.test_projectile_damage_speed_distance_and_slow_are_not_multiplied) (kind='star') ... ERROR
+  test_projectile_damage_speed_distance_and_slow_are_not_multiplied (tests.test_bottle_aura_tdd.AuraAttackTests.test_projectile_damage_speed_distance_and_slow_are_not_multiplied) (kind='fan') ... ERROR
+  test_projectile_damage_speed_distance_and_slow_are_not_multiplied (tests.test_bottle_aura_tdd.AuraAttackTests.test_projectile_damage_speed_distance_and_slow_are_not_multiplied) (kind='rocket') ... ERROR
+test_sun_has_no_delayed_burn_damage (tests.test_bottle_aura_tdd.AuraAttackTests.test_sun_has_no_delayed_burn_damage) ... ok
+test_buffed_beam_kill_rewards_once_clears_lock_and_wins (tests.test_bottle_aura_tdd.AuraIntegrationTests.test_buffed_beam_kill_rewards_once_clears_lock_and_wins) ... FAIL
+test_game_applies_aura_before_attacks_independent_of_list_order (tests.test_bottle_aura_tdd.AuraIntegrationTests.test_game_applies_aura_before_attacks_independent_of_list_order) ... 
+  test_game_applies_aura_before_attacks_independent_of_list_order (tests.test_bottle_aura_tdd.AuraIntegrationTests.test_game_applies_aura_before_attacks_independent_of_list_order) (reverse=False) ... FAIL
+  test_game_applies_aura_before_attacks_independent_of_list_order (tests.test_bottle_aura_tdd.AuraIntegrationTests.test_game_applies_aura_before_attacks_independent_of_list_order) (reverse=True) ... FAIL
+test_preparation_pause_and_intermission_freeze_buffed_attacks (tests.test_bottle_aura_tdd.AuraIntegrationTests.test_preparation_pause_and_intermission_freeze_buffed_attacks) ... FAIL
+test_all_tower_kinds_can_receive_aura (tests.test_bottle_aura_tdd.AuraTopologyTests.test_all_tower_kinds_can_receive_aura) ... 
+  test_all_tower_kinds_can_receive_aura (tests.test_bottle_aura_tdd.AuraTopologyTests.test_all_tower_kinds_can_receive_aura) (kind='bottle') ... ERROR
+  test_all_tower_kinds_can_receive_aura (tests.test_bottle_aura_tdd.AuraTopologyTests.test_all_tower_kinds_can_receive_aura) (kind='moon') ... ERROR
+  test_all_tower_kinds_can_receive_aura (tests.test_bottle_aura_tdd.AuraTopologyTests.test_all_tower_kinds_can_receive_aura) (kind='arrow') ... ERROR
+  test_all_tower_kinds_can_receive_aura (tests.test_bottle_aura_tdd.AuraTopologyTests.test_all_tower_kinds_can_receive_aura) (kind='star') ... ERROR
+  test_all_tower_kinds_can_receive_aura (tests.test_bottle_aura_tdd.AuraTopologyTests.test_all_tower_kinds_can_receive_aura) (kind='sun') ... ERROR
+  test_all_tower_kinds_can_receive_aura (tests.test_bottle_aura_tdd.AuraTopologyTests.test_all_tower_kinds_can_receive_aura) (kind='magic') ... ERROR
+  test_all_tower_kinds_can_receive_aura (tests.test_bottle_aura_tdd.AuraTopologyTests.test_all_tower_kinds_can_receive_aura) (kind='fan') ... ERROR
+  test_all_tower_kinds_can_receive_aura (tests.test_bottle_aura_tdd.AuraTopologyTests.test_all_tower_kinds_can_receive_aura) (kind='rocket') ... ERROR
+test_circle_boundary_and_diagonal_not_bounding_square (tests.test_bottle_aura_tdd.AuraTopologyTests.test_circle_boundary_and_diagonal_not_bounding_square) ... 
+  test_circle_boundary_and_diagonal_not_bounding_square (tests.test_bottle_aura_tdd.AuraTopologyTests.test_circle_boundary_and_diagonal_not_bounding_square) (dx=160, dy=0) ... ERROR
+  test_circle_boundary_and_diagonal_not_bounding_square (tests.test_bottle_aura_tdd.AuraTopologyTests.test_circle_boundary_and_diagonal_not_bounding_square) (dx=160.001, dy=0) ... ERROR
+  test_circle_boundary_and_diagonal_not_bounding_square (tests.test_bottle_aura_tdd.AuraTopologyTests.test_circle_boundary_and_diagonal_not_bounding_square) (dx=96, dy=128) ... ERROR
+  test_circle_boundary_and_diagonal_not_bounding_square (tests.test_bottle_aura_tdd.AuraTopologyTests.test_circle_boundary_and_diagonal_not_bounding_square) (dx=120, dy=120) ... ERROR
+test_failed_upgrade_and_removed_recipient_never_get_buff (tests.test_bottle_aura_tdd.AuraTopologyTests.test_failed_upgrade_and_removed_recipient_never_get_buff) ... ERROR
+test_no_self_buff_but_two_bottles_can_support_each_other (tests.test_bottle_aura_tdd.AuraTopologyTests.test_no_self_buff_but_two_bottles_can_support_each_other) ... ERROR
+test_only_level_three_bottle_provides_aura (tests.test_bottle_aura_tdd.AuraTopologyTests.test_only_level_three_bottle_provides_aura) ... 
+  test_only_level_three_bottle_provides_aura (tests.test_bottle_aura_tdd.AuraTopologyTests.test_only_level_three_bottle_provides_aura) (kind='bottle', level=1) ... ERROR
+  test_only_level_three_bottle_provides_aura (tests.test_bottle_aura_tdd.AuraTopologyTests.test_only_level_three_bottle_provides_aura) (kind='bottle', level=2) ... ERROR
+  test_only_level_three_bottle_provides_aura (tests.test_bottle_aura_tdd.AuraTopologyTests.test_only_level_three_bottle_provides_aura) (kind='bottle', level=3) ... ERROR
+  test_only_level_three_bottle_provides_aura (tests.test_bottle_aura_tdd.AuraTopologyTests.test_only_level_three_bottle_provides_aura) (kind='moon', level=1) ... ERROR
+  test_only_level_three_bottle_provides_aura (tests.test_bottle_aura_tdd.AuraTopologyTests.test_only_level_three_bottle_provides_aura) (kind='moon', level=2) ... ERROR
+  test_only_level_three_bottle_provides_aura (tests.test_bottle_aura_tdd.AuraTopologyTests.test_only_level_three_bottle_provides_aura) (kind='moon', level=3) ... ERROR
+  test_only_level_three_bottle_provides_aura (tests.test_bottle_aura_tdd.AuraTopologyTests.test_only_level_three_bottle_provides_aura) (kind='arrow', level=1) ... ERROR
+  test_only_level_three_bottle_provides_aura (tests.test_bottle_aura_tdd.AuraTopologyTests.test_only_level_three_bottle_provides_aura) (kind='arrow', level=2) ... ERROR
+  test_only_level_three_bottle_provides_aura (tests.test_bottle_aura_tdd.AuraTopologyTests.test_only_level_three_bottle_provides_aura) (kind='arrow', level=3) ... ERROR
+  test_only_level_three_bottle_provides_aura (tests.test_bottle_aura_tdd.AuraTopologyTests.test_only_level_three_bottle_provides_aura) (kind='star', level=1) ... ERROR
+  test_only_level_three_bottle_provides_aura (tests.test_bottle_aura_tdd.AuraTopologyTests.test_only_level_three_bottle_provides_aura) (kind='star', level=2) ... ERROR
+  test_only_level_three_bottle_provides_aura (tests.test_bottle_aura_tdd.AuraTopologyTests.test_only_level_three_bottle_provides_aura) (kind='star', level=3) ... ERROR
+  test_only_level_three_bottle_provides_aura (tests.test_bottle_aura_tdd.AuraTopologyTests.test_only_level_three_bottle_provides_aura) (kind='sun', level=1) ... ERROR
+  test_only_level_three_bottle_provides_aura (tests.test_bottle_aura_tdd.AuraTopologyTests.test_only_level_three_bottle_provides_aura) (kind='sun', level=2) ... ERROR
+  test_only_level_three_bottle_provides_aura (tests.test_bottle_aura_tdd.AuraTopologyTests.test_only_level_three_bottle_provides_aura) (kind='sun', level=3) ... ERROR
+  test_only_level_three_bottle_provides_aura (tests.test_bottle_aura_tdd.AuraTopologyTests.test_only_level_three_bottle_provides_aura) (kind='magic', level=1) ... ERROR
+  test_only_level_three_bottle_provides_aura (tests.test_bottle_aura_tdd.AuraTopologyTests.test_only_level_three_bottle_provides_aura) (kind='magic', level=2) ... ERROR
+  test_only_level_three_bottle_provides_aura (tests.test_bottle_aura_tdd.AuraTopologyTests.test_only_level_three_bottle_provides_aura) (kind='magic', level=3) ... ERROR
+  test_only_level_three_bottle_provides_aura (tests.test_bottle_aura_tdd.AuraTopologyTests.test_only_level_three_bottle_provides_aura) (kind='fan', level=1) ... ERROR
+  test_only_level_three_bottle_provides_aura (tests.test_bottle_aura_tdd.AuraTopologyTests.test_only_level_three_bottle_provides_aura) (kind='fan', level=2) ... ERROR
+  test_only_level_three_bottle_provides_aura (tests.test_bottle_aura_tdd.AuraTopologyTests.test_only_level_three_bottle_provides_aura) (kind='fan', level=3) ... ERROR
+  test_only_level_three_bottle_provides_aura (tests.test_bottle_aura_tdd.AuraTopologyTests.test_only_level_three_bottle_provides_aura) (kind='rocket', level=1) ... ERROR
+  test_only_level_three_bottle_provides_aura (tests.test_bottle_aura_tdd.AuraTopologyTests.test_only_level_three_bottle_provides_aura) (kind='rocket', level=2) ... ERROR
+  test_only_level_three_bottle_provides_aura (tests.test_bottle_aura_tdd.AuraTopologyTests.test_only_level_three_bottle_provides_aura) (kind='rocket', level=3) ... ERROR
+test_overlap_does_not_stack_and_survives_one_source_sale (tests.test_bottle_aura_tdd.AuraTopologyTests.test_overlap_does_not_stack_and_survives_one_source_sale) ... ERROR
+test_reset_does_not_retain_old_sources (tests.test_bottle_aura_tdd.AuraTopologyTests.test_reset_does_not_retain_old_sources) ... ERROR
+test_upgrade_and_sale_apply_immediately_without_resetting_cooldown (tests.test_bottle_aura_tdd.AuraTopologyTests.test_upgrade_and_sale_apply_immediately_without_resetting_cooldown) ... ERROR
+
+======================================================================
+ERROR: test_aoe_damage_radius_and_moon_slow_duration_stay_unchanged (tests.test_bottle_aura_tdd.AuraAttackTests.test_aoe_damage_radius_and_moon_slow_duration_stay_unchanged) (kind='sun')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Jay\Desktop\protect carrot\tests\test_bottle_aura_tdd.py", line 212, in test_aoe_damage_radius_and_moon_slow_duration_stay_unchanged
+    tower(kind).update(0, victims, effects, attack_speed=rate)
+    ~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: Tower.update() got an unexpected keyword argument 'attack_speed'
+
+======================================================================
+ERROR: test_aoe_damage_radius_and_moon_slow_duration_stay_unchanged (tests.test_bottle_aura_tdd.AuraAttackTests.test_aoe_damage_radius_and_moon_slow_duration_stay_unchanged) (kind='moon')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Jay\Desktop\protect carrot\tests\test_bottle_aura_tdd.py", line 212, in test_aoe_damage_radius_and_moon_slow_duration_stay_unchanged
+    tower(kind).update(0, victims, effects, attack_speed=rate)
+    ~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: Tower.update() got an unexpected keyword argument 'attack_speed'
+
+======================================================================
+ERROR: test_aoe_damage_radius_and_moon_slow_duration_stay_unchanged (tests.test_bottle_aura_tdd.AuraAttackTests.test_aoe_damage_radius_and_moon_slow_duration_stay_unchanged) (kind='arrow')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Jay\Desktop\protect carrot\tests\test_bottle_aura_tdd.py", line 212, in test_aoe_damage_radius_and_moon_slow_duration_stay_unchanged
+    tower(kind).update(0, victims, effects, attack_speed=rate)
+    ~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: Tower.update() got an unexpected keyword argument 'attack_speed'
+
+======================================================================
+ERROR: test_beam_damage_scales_with_level_and_real_elapsed_time (tests.test_bottle_aura_tdd.AuraAttackTests.test_beam_damage_scales_with_level_and_real_elapsed_time) (level=1)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Jay\Desktop\protect carrot\tests\test_bottle_aura_tdd.py", line 136, in test_beam_damage_scales_with_level_and_real_elapsed_time
+    subject.update(.4, [victim], [], attack_speed=1.25)
+    ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: Tower.update() got an unexpected keyword argument 'attack_speed'
+
+======================================================================
+ERROR: test_beam_damage_scales_with_level_and_real_elapsed_time (tests.test_bottle_aura_tdd.AuraAttackTests.test_beam_damage_scales_with_level_and_real_elapsed_time) (level=2)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Jay\Desktop\protect carrot\tests\test_bottle_aura_tdd.py", line 136, in test_beam_damage_scales_with_level_and_real_elapsed_time
+    subject.update(.4, [victim], [], attack_speed=1.25)
+    ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: Tower.update() got an unexpected keyword argument 'attack_speed'
+
+======================================================================
+ERROR: test_beam_damage_scales_with_level_and_real_elapsed_time (tests.test_bottle_aura_tdd.AuraAttackTests.test_beam_damage_scales_with_level_and_real_elapsed_time) (level=3)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Jay\Desktop\protect carrot\tests\test_bottle_aura_tdd.py", line 136, in test_beam_damage_scales_with_level_and_real_elapsed_time
+    subject.update(.4, [victim], [], attack_speed=1.25)
+    ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: Tower.update() got an unexpected keyword argument 'attack_speed'
+
+======================================================================
+ERROR: test_beam_dynamic_buff_and_frame_partition_keep_same_damage (tests.test_bottle_aura_tdd.AuraAttackTests.test_beam_dynamic_buff_and_frame_partition_keep_same_damage)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Jay\Desktop\protect carrot\tests\test_bottle_aura_tdd.py", line 148, in test_beam_dynamic_buff_and_frame_partition_keep_same_damage
+    subject.update(dt / steps, [victim], [], attack_speed=rate)
+    ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: Tower.update() got an unexpected keyword argument 'attack_speed'
+
+======================================================================
+ERROR: test_beam_keeps_lock_and_stops_outside_range_or_on_death (tests.test_bottle_aura_tdd.AuraAttackTests.test_beam_keeps_lock_and_stops_outside_range_or_on_death)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Jay\Desktop\protect carrot\tests\test_bottle_aura_tdd.py", line 155, in test_beam_keeps_lock_and_stops_outside_range_or_on_death
+    subject.update(.1, [a], [], attack_speed=1.25)
+    ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: Tower.update() got an unexpected keyword argument 'attack_speed'
+
+======================================================================
+ERROR: test_beam_manual_obstacle_target_also_gets_dps_bonus (tests.test_bottle_aura_tdd.AuraAttackTests.test_beam_manual_obstacle_target_also_gets_dps_bonus)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Jay\Desktop\protect carrot\tests\test_bottle_aura_tdd.py", line 172, in test_beam_manual_obstacle_target_also_gets_dps_bonus
+    subject.update(.4, [], [], [obstacle], obstacle, attack_speed=1.25)
+    ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: Tower.update() got an unexpected keyword argument 'attack_speed'
+
+======================================================================
+ERROR: test_buff_added_and_removed_mid_cooldown_preserves_completed_work (tests.test_bottle_aura_tdd.AuraAttackTests.test_buff_added_and_removed_mid_cooldown_preserves_completed_work)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Jay\Desktop\protect carrot\tests\test_bottle_aura_tdd.py", line 118, in test_buff_added_and_removed_mid_cooldown_preserves_completed_work
+    subject.update(.16, [victim], effects, attack_speed=1.25)  # 完成 .2 秒
+    ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: Tower.update() got an unexpected keyword argument 'attack_speed'
+
+======================================================================
+ERROR: test_every_periodic_tower_fires_at_shorter_interval_for_all_levels (tests.test_bottle_aura_tdd.AuraAttackTests.test_every_periodic_tower_fires_at_shorter_interval_for_all_levels) (kind='bottle', level=1)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Jay\Desktop\protect carrot\tests\test_bottle_aura_tdd.py", line 106, in test_every_periodic_tower_fires_at_shorter_interval_for_all_levels
+    subject.update(0, [victim], effects, attack_speed=1.25)
+    ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: Tower.update() got an unexpected keyword argument 'attack_speed'
+
+======================================================================
+ERROR: test_every_periodic_tower_fires_at_shorter_interval_for_all_levels (tests.test_bottle_aura_tdd.AuraAttackTests.test_every_periodic_tower_fires_at_shorter_interval_for_all_levels) (kind='bottle', level=2)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Jay\Desktop\protect carrot\tests\test_bottle_aura_tdd.py", line 106, in test_every_periodic_tower_fires_at_shorter_interval_for_all_levels
+    subject.update(0, [victim], effects, attack_speed=1.25)
+    ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: Tower.update() got an unexpected keyword argument 'attack_speed'
+
+======================================================================
+ERROR: test_every_periodic_tower_fires_at_shorter_interval_for_all_levels (tests.test_bottle_aura_tdd.AuraAttackTests.test_every_periodic_tower_fires_at_shorter_interval_for_all_levels) (kind='bottle', level=3)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Jay\Desktop\protect carrot\tests\test_bottle_aura_tdd.py", line 106, in test_every_periodic_tower_fires_at_shorter_interval_for_all_levels
+    subject.update(0, [victim], effects, attack_speed=1.25)
+    ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: Tower.update() got an unexpected keyword argument 'attack_speed'
+
+======================================================================
+ERROR: test_every_periodic_tower_fires_at_shorter_interval_for_all_levels (tests.test_bottle_aura_tdd.AuraAttackTests.test_every_periodic_tower_fires_at_shorter_interval_for_all_levels) (kind='moon', level=1)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Jay\Desktop\protect carrot\tests\test_bottle_aura_tdd.py", line 106, in test_every_periodic_tower_fires_at_shorter_interval_for_all_levels
+    subject.update(0, [victim], effects, attack_speed=1.25)
+    ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: Tower.update() got an unexpected keyword argument 'attack_speed'
+
+======================================================================
+ERROR: test_every_periodic_tower_fires_at_shorter_interval_for_all_levels (tests.test_bottle_aura_tdd.AuraAttackTests.test_every_periodic_tower_fires_at_shorter_interval_for_all_levels) (kind='moon', level=2)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Jay\Desktop\protect carrot\tests\test_bottle_aura_tdd.py", line 106, in test_every_periodic_tower_fires_at_shorter_interval_for_all_levels
+    subject.update(0, [victim], effects, attack_speed=1.25)
+    ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: Tower.update() got an unexpected keyword argument 'attack_speed'
+
+======================================================================
+ERROR: test_every_periodic_tower_fires_at_shorter_interval_for_all_levels (tests.test_bottle_aura_tdd.AuraAttackTests.test_every_periodic_tower_fires_at_shorter_interval_for_all_levels) (kind='moon', level=3)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Jay\Desktop\protect carrot\tests\test_bottle_aura_tdd.py", line 106, in test_every_periodic_tower_fires_at_shorter_interval_for_all_levels
+    subject.update(0, [victim], effects, attack_speed=1.25)
+    ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: Tower.update() got an unexpected keyword argument 'attack_speed'
+
+======================================================================
+ERROR: test_every_periodic_tower_fires_at_shorter_interval_for_all_levels (tests.test_bottle_aura_tdd.AuraAttackTests.test_every_periodic_tower_fires_at_shorter_interval_for_all_levels) (kind='arrow', level=1)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Jay\Desktop\protect carrot\tests\test_bottle_aura_tdd.py", line 106, in test_every_periodic_tower_fires_at_shorter_interval_for_all_levels
+    subject.update(0, [victim], effects, attack_speed=1.25)
+    ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: Tower.update() got an unexpected keyword argument 'attack_speed'
+
+======================================================================
+ERROR: test_every_periodic_tower_fires_at_shorter_interval_for_all_levels (tests.test_bottle_aura_tdd.AuraAttackTests.test_every_periodic_tower_fires_at_shorter_interval_for_all_levels) (kind='arrow', level=2)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Jay\Desktop\protect carrot\tests\test_bottle_aura_tdd.py", line 106, in test_every_periodic_tower_fires_at_shorter_interval_for_all_levels
+    subject.update(0, [victim], effects, attack_speed=1.25)
+    ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: Tower.update() got an unexpected keyword argument 'attack_speed'
+
+======================================================================
+ERROR: test_every_periodic_tower_fires_at_shorter_interval_for_all_levels (tests.test_bottle_aura_tdd.AuraAttackTests.test_every_periodic_tower_fires_at_shorter_interval_for_all_levels) (kind='arrow', level=3)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Jay\Desktop\protect carrot\tests\test_bottle_aura_tdd.py", line 106, in test_every_periodic_tower_fires_at_shorter_interval_for_all_levels
+    subject.update(0, [victim], effects, attack_speed=1.25)
+    ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: Tower.update() got an unexpected keyword argument 'attack_speed'
+
+======================================================================
+ERROR: test_every_periodic_tower_fires_at_shorter_interval_for_all_levels (tests.test_bottle_aura_tdd.AuraAttackTests.test_every_periodic_tower_fires_at_shorter_interval_for_all_levels) (kind='star', level=1)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Jay\Desktop\protect carrot\tests\test_bottle_aura_tdd.py", line 106, in test_every_periodic_tower_fires_at_shorter_interval_for_all_levels
+    subject.update(0, [victim], effects, attack_speed=1.25)
+    ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: Tower.update() got an unexpected keyword argument 'attack_speed'
+
+======================================================================
+ERROR: test_every_periodic_tower_fires_at_shorter_interval_for_all_levels (tests.test_bottle_aura_tdd.AuraAttackTests.test_every_periodic_tower_fires_at_shorter_interval_for_all_levels) (kind='star', level=2)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Jay\Desktop\protect carrot\tests\test_bottle_aura_tdd.py", line 106, in test_every_periodic_tower_fires_at_shorter_interval_for_all_levels
+    subject.update(0, [victim], effects, attack_speed=1.25)
+    ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: Tower.update() got an unexpected keyword argument 'attack_speed'
+
+======================================================================
+ERROR: test_every_periodic_tower_fires_at_shorter_interval_for_all_levels (tests.test_bottle_aura_tdd.AuraAttackTests.test_every_periodic_tower_fires_at_shorter_interval_for_all_levels) (kind='star', level=3)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Jay\Desktop\protect carrot\tests\test_bottle_aura_tdd.py", line 106, in test_every_periodic_tower_fires_at_shorter_interval_for_all_levels
+    subject.update(0, [victim], effects, attack_speed=1.25)
+    ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: Tower.update() got an unexpected keyword argument 'attack_speed'
+
+======================================================================
+ERROR: test_every_periodic_tower_fires_at_shorter_interval_for_all_levels (tests.test_bottle_aura_tdd.AuraAttackTests.test_every_periodic_tower_fires_at_shorter_interval_for_all_levels) (kind='sun', level=1)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Jay\Desktop\protect carrot\tests\test_bottle_aura_tdd.py", line 106, in test_every_periodic_tower_fires_at_shorter_interval_for_all_levels
+    subject.update(0, [victim], effects, attack_speed=1.25)
+    ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: Tower.update() got an unexpected keyword argument 'attack_speed'
+
+======================================================================
+ERROR: test_every_periodic_tower_fires_at_shorter_interval_for_all_levels (tests.test_bottle_aura_tdd.AuraAttackTests.test_every_periodic_tower_fires_at_shorter_interval_for_all_levels) (kind='sun', level=2)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Jay\Desktop\protect carrot\tests\test_bottle_aura_tdd.py", line 106, in test_every_periodic_tower_fires_at_shorter_interval_for_all_levels
+    subject.update(0, [victim], effects, attack_speed=1.25)
+    ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: Tower.update() got an unexpected keyword argument 'attack_speed'
+
+======================================================================
+ERROR: test_every_periodic_tower_fires_at_shorter_interval_for_all_levels (tests.test_bottle_aura_tdd.AuraAttackTests.test_every_periodic_tower_fires_at_shorter_interval_for_all_levels) (kind='sun', level=3)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Jay\Desktop\protect carrot\tests\test_bottle_aura_tdd.py", line 106, in test_every_periodic_tower_fires_at_shorter_interval_for_all_levels
+    subject.update(0, [victim], effects, attack_speed=1.25)
+    ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: Tower.update() got an unexpected keyword argument 'attack_speed'
+
+======================================================================
+ERROR: test_every_periodic_tower_fires_at_shorter_interval_for_all_levels (tests.test_bottle_aura_tdd.AuraAttackTests.test_every_periodic_tower_fires_at_shorter_interval_for_all_levels) (kind='fan', level=1)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Jay\Desktop\protect carrot\tests\test_bottle_aura_tdd.py", line 106, in test_every_periodic_tower_fires_at_shorter_interval_for_all_levels
+    subject.update(0, [victim], effects, attack_speed=1.25)
+    ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: Tower.update() got an unexpected keyword argument 'attack_speed'
+
+======================================================================
+ERROR: test_every_periodic_tower_fires_at_shorter_interval_for_all_levels (tests.test_bottle_aura_tdd.AuraAttackTests.test_every_periodic_tower_fires_at_shorter_interval_for_all_levels) (kind='fan', level=2)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Jay\Desktop\protect carrot\tests\test_bottle_aura_tdd.py", line 106, in test_every_periodic_tower_fires_at_shorter_interval_for_all_levels
+    subject.update(0, [victim], effects, attack_speed=1.25)
+    ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: Tower.update() got an unexpected keyword argument 'attack_speed'
+
+======================================================================
+ERROR: test_every_periodic_tower_fires_at_shorter_interval_for_all_levels (tests.test_bottle_aura_tdd.AuraAttackTests.test_every_periodic_tower_fires_at_shorter_interval_for_all_levels) (kind='fan', level=3)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Jay\Desktop\protect carrot\tests\test_bottle_aura_tdd.py", line 106, in test_every_periodic_tower_fires_at_shorter_interval_for_all_levels
+    subject.update(0, [victim], effects, attack_speed=1.25)
+    ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: Tower.update() got an unexpected keyword argument 'attack_speed'
+
+======================================================================
+ERROR: test_every_periodic_tower_fires_at_shorter_interval_for_all_levels (tests.test_bottle_aura_tdd.AuraAttackTests.test_every_periodic_tower_fires_at_shorter_interval_for_all_levels) (kind='rocket', level=1)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Jay\Desktop\protect carrot\tests\test_bottle_aura_tdd.py", line 106, in test_every_periodic_tower_fires_at_shorter_interval_for_all_levels
+    subject.update(0, [victim], effects, attack_speed=1.25)
+    ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: Tower.update() got an unexpected keyword argument 'attack_speed'
+
+======================================================================
+ERROR: test_every_periodic_tower_fires_at_shorter_interval_for_all_levels (tests.test_bottle_aura_tdd.AuraAttackTests.test_every_periodic_tower_fires_at_shorter_interval_for_all_levels) (kind='rocket', level=2)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Jay\Desktop\protect carrot\tests\test_bottle_aura_tdd.py", line 106, in test_every_periodic_tower_fires_at_shorter_interval_for_all_levels
+    subject.update(0, [victim], effects, attack_speed=1.25)
+    ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: Tower.update() got an unexpected keyword argument 'attack_speed'
+
+======================================================================
+ERROR: test_every_periodic_tower_fires_at_shorter_interval_for_all_levels (tests.test_bottle_aura_tdd.AuraAttackTests.test_every_periodic_tower_fires_at_shorter_interval_for_all_levels) (kind='rocket', level=3)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Jay\Desktop\protect carrot\tests\test_bottle_aura_tdd.py", line 106, in test_every_periodic_tower_fires_at_shorter_interval_for_all_levels
+    subject.update(0, [victim], effects, attack_speed=1.25)
+    ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: Tower.update() got an unexpected keyword argument 'attack_speed'
+
+======================================================================
+ERROR: test_idle_time_does_not_bank_a_burst (tests.test_bottle_aura_tdd.AuraAttackTests.test_idle_time_does_not_bank_a_burst)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Jay\Desktop\protect carrot\tests\test_bottle_aura_tdd.py", line 126, in test_idle_time_does_not_bank_a_burst
+    subject.update(30, [], effects, attack_speed=1.25)
+    ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: Tower.update() got an unexpected keyword argument 'attack_speed'
+
+======================================================================
+ERROR: test_piercing_projectile_hits_each_instance_once_even_when_buffed (tests.test_bottle_aura_tdd.AuraAttackTests.test_piercing_projectile_hits_each_instance_once_even_when_buffed) (kind='fan')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Jay\Desktop\protect carrot\tests\test_bottle_aura_tdd.py", line 200, in test_piercing_projectile_hits_each_instance_once_even_when_buffed
+    tower(kind).update(0, [victim], effects, attack_speed=1.25)
+    ~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: Tower.update() got an unexpected keyword argument 'attack_speed'
+
+======================================================================
+ERROR: test_piercing_projectile_hits_each_instance_once_even_when_buffed (tests.test_bottle_aura_tdd.AuraAttackTests.test_piercing_projectile_hits_each_instance_once_even_when_buffed) (kind='rocket')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Jay\Desktop\protect carrot\tests\test_bottle_aura_tdd.py", line 200, in test_piercing_projectile_hits_each_instance_once_even_when_buffed
+    tower(kind).update(0, [victim], effects, attack_speed=1.25)
+    ~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: Tower.update() got an unexpected keyword argument 'attack_speed'
+
+======================================================================
+ERROR: test_projectile_damage_speed_distance_and_slow_are_not_multiplied (tests.test_bottle_aura_tdd.AuraAttackTests.test_projectile_damage_speed_distance_and_slow_are_not_multiplied) (kind='bottle')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Jay\Desktop\protect carrot\tests\test_bottle_aura_tdd.py", line 181, in test_projectile_damage_speed_distance_and_slow_are_not_multiplied
+    tower(kind).update(0, [enemy()], effects, attack_speed=rate)
+    ~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: Tower.update() got an unexpected keyword argument 'attack_speed'
+
+======================================================================
+ERROR: test_projectile_damage_speed_distance_and_slow_are_not_multiplied (tests.test_bottle_aura_tdd.AuraAttackTests.test_projectile_damage_speed_distance_and_slow_are_not_multiplied) (kind='star')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Jay\Desktop\protect carrot\tests\test_bottle_aura_tdd.py", line 181, in test_projectile_damage_speed_distance_and_slow_are_not_multiplied
+    tower(kind).update(0, [enemy()], effects, attack_speed=rate)
+    ~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: Tower.update() got an unexpected keyword argument 'attack_speed'
+
+======================================================================
+ERROR: test_projectile_damage_speed_distance_and_slow_are_not_multiplied (tests.test_bottle_aura_tdd.AuraAttackTests.test_projectile_damage_speed_distance_and_slow_are_not_multiplied) (kind='fan')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Jay\Desktop\protect carrot\tests\test_bottle_aura_tdd.py", line 181, in test_projectile_damage_speed_distance_and_slow_are_not_multiplied
+    tower(kind).update(0, [enemy()], effects, attack_speed=rate)
+    ~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: Tower.update() got an unexpected keyword argument 'attack_speed'
+
+======================================================================
+ERROR: test_projectile_damage_speed_distance_and_slow_are_not_multiplied (tests.test_bottle_aura_tdd.AuraAttackTests.test_projectile_damage_speed_distance_and_slow_are_not_multiplied) (kind='rocket')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Jay\Desktop\protect carrot\tests\test_bottle_aura_tdd.py", line 181, in test_projectile_damage_speed_distance_and_slow_are_not_multiplied
+    tower(kind).update(0, [enemy()], effects, attack_speed=rate)
+    ~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: Tower.update() got an unexpected keyword argument 'attack_speed'
+
+======================================================================
+ERROR: test_all_tower_kinds_can_receive_aura (tests.test_bottle_aura_tdd.AuraTopologyTests.test_all_tower_kinds_can_receive_aura) (kind='bottle')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Jay\Desktop\protect carrot\tests\test_bottle_aura_tdd.py", line 54, in test_all_tower_kinds_can_receive_aura
+    self.assertEqual(self.game.attack_speed_for(self.target), 1.25)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'Game' object has no attribute 'attack_speed_for'
+
+======================================================================
+ERROR: test_all_tower_kinds_can_receive_aura (tests.test_bottle_aura_tdd.AuraTopologyTests.test_all_tower_kinds_can_receive_aura) (kind='moon')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Jay\Desktop\protect carrot\tests\test_bottle_aura_tdd.py", line 54, in test_all_tower_kinds_can_receive_aura
+    self.assertEqual(self.game.attack_speed_for(self.target), 1.25)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'Game' object has no attribute 'attack_speed_for'
+
+======================================================================
+ERROR: test_all_tower_kinds_can_receive_aura (tests.test_bottle_aura_tdd.AuraTopologyTests.test_all_tower_kinds_can_receive_aura) (kind='arrow')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Jay\Desktop\protect carrot\tests\test_bottle_aura_tdd.py", line 54, in test_all_tower_kinds_can_receive_aura
+    self.assertEqual(self.game.attack_speed_for(self.target), 1.25)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'Game' object has no attribute 'attack_speed_for'
+
+======================================================================
+ERROR: test_all_tower_kinds_can_receive_aura (tests.test_bottle_aura_tdd.AuraTopologyTests.test_all_tower_kinds_can_receive_aura) (kind='star')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Jay\Desktop\protect carrot\tests\test_bottle_aura_tdd.py", line 54, in test_all_tower_kinds_can_receive_aura
+    self.assertEqual(self.game.attack_speed_for(self.target), 1.25)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'Game' object has no attribute 'attack_speed_for'
+
+======================================================================
+ERROR: test_all_tower_kinds_can_receive_aura (tests.test_bottle_aura_tdd.AuraTopologyTests.test_all_tower_kinds_can_receive_aura) (kind='sun')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Jay\Desktop\protect carrot\tests\test_bottle_aura_tdd.py", line 54, in test_all_tower_kinds_can_receive_aura
+    self.assertEqual(self.game.attack_speed_for(self.target), 1.25)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'Game' object has no attribute 'attack_speed_for'
+
+======================================================================
+ERROR: test_all_tower_kinds_can_receive_aura (tests.test_bottle_aura_tdd.AuraTopologyTests.test_all_tower_kinds_can_receive_aura) (kind='magic')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Jay\Desktop\protect carrot\tests\test_bottle_aura_tdd.py", line 54, in test_all_tower_kinds_can_receive_aura
+    self.assertEqual(self.game.attack_speed_for(self.target), 1.25)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'Game' object has no attribute 'attack_speed_for'
+
+======================================================================
+ERROR: test_all_tower_kinds_can_receive_aura (tests.test_bottle_aura_tdd.AuraTopologyTests.test_all_tower_kinds_can_receive_aura) (kind='fan')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Jay\Desktop\protect carrot\tests\test_bottle_aura_tdd.py", line 54, in test_all_tower_kinds_can_receive_aura
+    self.assertEqual(self.game.attack_speed_for(self.target), 1.25)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'Game' object has no attribute 'attack_speed_for'
+
+======================================================================
+ERROR: test_all_tower_kinds_can_receive_aura (tests.test_bottle_aura_tdd.AuraTopologyTests.test_all_tower_kinds_can_receive_aura) (kind='rocket')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Jay\Desktop\protect carrot\tests\test_bottle_aura_tdd.py", line 54, in test_all_tower_kinds_can_receive_aura
+    self.assertEqual(self.game.attack_speed_for(self.target), 1.25)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'Game' object has no attribute 'attack_speed_for'
+
+======================================================================
+ERROR: test_circle_boundary_and_diagonal_not_bounding_square (tests.test_bottle_aura_tdd.AuraTopologyTests.test_circle_boundary_and_diagonal_not_bounding_square) (dx=160, dy=0)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Jay\Desktop\protect carrot\tests\test_bottle_aura_tdd.py", line 48, in test_circle_boundary_and_diagonal_not_bounding_square
+    self.assertEqual(self.game.attack_speed_for(self.target), expected)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'Game' object has no attribute 'attack_speed_for'
+
+======================================================================
+ERROR: test_circle_boundary_and_diagonal_not_bounding_square (tests.test_bottle_aura_tdd.AuraTopologyTests.test_circle_boundary_and_diagonal_not_bounding_square) (dx=160.001, dy=0)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Jay\Desktop\protect carrot\tests\test_bottle_aura_tdd.py", line 48, in test_circle_boundary_and_diagonal_not_bounding_square
+    self.assertEqual(self.game.attack_speed_for(self.target), expected)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'Game' object has no attribute 'attack_speed_for'
+
+======================================================================
+ERROR: test_circle_boundary_and_diagonal_not_bounding_square (tests.test_bottle_aura_tdd.AuraTopologyTests.test_circle_boundary_and_diagonal_not_bounding_square) (dx=96, dy=128)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Jay\Desktop\protect carrot\tests\test_bottle_aura_tdd.py", line 48, in test_circle_boundary_and_diagonal_not_bounding_square
+    self.assertEqual(self.game.attack_speed_for(self.target), expected)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'Game' object has no attribute 'attack_speed_for'
+
+======================================================================
+ERROR: test_circle_boundary_and_diagonal_not_bounding_square (tests.test_bottle_aura_tdd.AuraTopologyTests.test_circle_boundary_and_diagonal_not_bounding_square) (dx=120, dy=120)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Jay\Desktop\protect carrot\tests\test_bottle_aura_tdd.py", line 48, in test_circle_boundary_and_diagonal_not_bounding_square
+    self.assertEqual(self.game.attack_speed_for(self.target), expected)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'Game' object has no attribute 'attack_speed_for'
+
+======================================================================
+ERROR: test_failed_upgrade_and_removed_recipient_never_get_buff (tests.test_bottle_aura_tdd.AuraTopologyTests.test_failed_upgrade_and_removed_recipient_never_get_buff)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Jay\Desktop\protect carrot\tests\test_bottle_aura_tdd.py", line 87, in test_failed_upgrade_and_removed_recipient_never_get_buff
+    self.assertEqual(self.game.attack_speed_for(self.target), 1)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'Game' object has no attribute 'attack_speed_for'
+
+======================================================================
+ERROR: test_no_self_buff_but_two_bottles_can_support_each_other (tests.test_bottle_aura_tdd.AuraTopologyTests.test_no_self_buff_but_two_bottles_can_support_each_other)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Jay\Desktop\protect carrot\tests\test_bottle_aura_tdd.py", line 57, in test_no_self_buff_but_two_bottles_can_support_each_other
+    self.assertEqual(self.game.attack_speed_for(self.source), 1)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'Game' object has no attribute 'attack_speed_for'
+
+======================================================================
+ERROR: test_only_level_three_bottle_provides_aura (tests.test_bottle_aura_tdd.AuraTopologyTests.test_only_level_three_bottle_provides_aura) (kind='bottle', level=1)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Jay\Desktop\protect carrot\tests\test_bottle_aura_tdd.py", line 41, in test_only_level_three_bottle_provides_aura
+    self.assertEqual(self.game.attack_speed_for(self.target), expected)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'Game' object has no attribute 'attack_speed_for'
+
+======================================================================
+ERROR: test_only_level_three_bottle_provides_aura (tests.test_bottle_aura_tdd.AuraTopologyTests.test_only_level_three_bottle_provides_aura) (kind='bottle', level=2)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Jay\Desktop\protect carrot\tests\test_bottle_aura_tdd.py", line 41, in test_only_level_three_bottle_provides_aura
+    self.assertEqual(self.game.attack_speed_for(self.target), expected)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'Game' object has no attribute 'attack_speed_for'
+
+======================================================================
+ERROR: test_only_level_three_bottle_provides_aura (tests.test_bottle_aura_tdd.AuraTopologyTests.test_only_level_three_bottle_provides_aura) (kind='bottle', level=3)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Jay\Desktop\protect carrot\tests\test_bottle_aura_tdd.py", line 41, in test_only_level_three_bottle_provides_aura
+    self.assertEqual(self.game.attack_speed_for(self.target), expected)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'Game' object has no attribute 'attack_speed_for'
+
+======================================================================
+ERROR: test_only_level_three_bottle_provides_aura (tests.test_bottle_aura_tdd.AuraTopologyTests.test_only_level_three_bottle_provides_aura) (kind='moon', level=1)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Jay\Desktop\protect carrot\tests\test_bottle_aura_tdd.py", line 41, in test_only_level_three_bottle_provides_aura
+    self.assertEqual(self.game.attack_speed_for(self.target), expected)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'Game' object has no attribute 'attack_speed_for'
+
+======================================================================
+ERROR: test_only_level_three_bottle_provides_aura (tests.test_bottle_aura_tdd.AuraTopologyTests.test_only_level_three_bottle_provides_aura) (kind='moon', level=2)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Jay\Desktop\protect carrot\tests\test_bottle_aura_tdd.py", line 41, in test_only_level_three_bottle_provides_aura
+    self.assertEqual(self.game.attack_speed_for(self.target), expected)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'Game' object has no attribute 'attack_speed_for'
+
+======================================================================
+ERROR: test_only_level_three_bottle_provides_aura (tests.test_bottle_aura_tdd.AuraTopologyTests.test_only_level_three_bottle_provides_aura) (kind='moon', level=3)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Jay\Desktop\protect carrot\tests\test_bottle_aura_tdd.py", line 41, in test_only_level_three_bottle_provides_aura
+    self.assertEqual(self.game.attack_speed_for(self.target), expected)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'Game' object has no attribute 'attack_speed_for'
+
+======================================================================
+ERROR: test_only_level_three_bottle_provides_aura (tests.test_bottle_aura_tdd.AuraTopologyTests.test_only_level_three_bottle_provides_aura) (kind='arrow', level=1)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Jay\Desktop\protect carrot\tests\test_bottle_aura_tdd.py", line 41, in test_only_level_three_bottle_provides_aura
+    self.assertEqual(self.game.attack_speed_for(self.target), expected)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'Game' object has no attribute 'attack_speed_for'
+
+======================================================================
+ERROR: test_only_level_three_bottle_provides_aura (tests.test_bottle_aura_tdd.AuraTopologyTests.test_only_level_three_bottle_provides_aura) (kind='arrow', level=2)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Jay\Desktop\protect carrot\tests\test_bottle_aura_tdd.py", line 41, in test_only_level_three_bottle_provides_aura
+    self.assertEqual(self.game.attack_speed_for(self.target), expected)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'Game' object has no attribute 'attack_speed_for'
+
+======================================================================
+ERROR: test_only_level_three_bottle_provides_aura (tests.test_bottle_aura_tdd.AuraTopologyTests.test_only_level_three_bottle_provides_aura) (kind='arrow', level=3)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Jay\Desktop\protect carrot\tests\test_bottle_aura_tdd.py", line 41, in test_only_level_three_bottle_provides_aura
+    self.assertEqual(self.game.attack_speed_for(self.target), expected)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'Game' object has no attribute 'attack_speed_for'
+
+======================================================================
+ERROR: test_only_level_three_bottle_provides_aura (tests.test_bottle_aura_tdd.AuraTopologyTests.test_only_level_three_bottle_provides_aura) (kind='star', level=1)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Jay\Desktop\protect carrot\tests\test_bottle_aura_tdd.py", line 41, in test_only_level_three_bottle_provides_aura
+    self.assertEqual(self.game.attack_speed_for(self.target), expected)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'Game' object has no attribute 'attack_speed_for'
+
+======================================================================
+ERROR: test_only_level_three_bottle_provides_aura (tests.test_bottle_aura_tdd.AuraTopologyTests.test_only_level_three_bottle_provides_aura) (kind='star', level=2)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Jay\Desktop\protect carrot\tests\test_bottle_aura_tdd.py", line 41, in test_only_level_three_bottle_provides_aura
+    self.assertEqual(self.game.attack_speed_for(self.target), expected)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'Game' object has no attribute 'attack_speed_for'
+
+======================================================================
+ERROR: test_only_level_three_bottle_provides_aura (tests.test_bottle_aura_tdd.AuraTopologyTests.test_only_level_three_bottle_provides_aura) (kind='star', level=3)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Jay\Desktop\protect carrot\tests\test_bottle_aura_tdd.py", line 41, in test_only_level_three_bottle_provides_aura
+    self.assertEqual(self.game.attack_speed_for(self.target), expected)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'Game' object has no attribute 'attack_speed_for'
+
+======================================================================
+ERROR: test_only_level_three_bottle_provides_aura (tests.test_bottle_aura_tdd.AuraTopologyTests.test_only_level_three_bottle_provides_aura) (kind='sun', level=1)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Jay\Desktop\protect carrot\tests\test_bottle_aura_tdd.py", line 41, in test_only_level_three_bottle_provides_aura
+    self.assertEqual(self.game.attack_speed_for(self.target), expected)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'Game' object has no attribute 'attack_speed_for'
+
+======================================================================
+ERROR: test_only_level_three_bottle_provides_aura (tests.test_bottle_aura_tdd.AuraTopologyTests.test_only_level_three_bottle_provides_aura) (kind='sun', level=2)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Jay\Desktop\protect carrot\tests\test_bottle_aura_tdd.py", line 41, in test_only_level_three_bottle_provides_aura
+    self.assertEqual(self.game.attack_speed_for(self.target), expected)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'Game' object has no attribute 'attack_speed_for'
+
+======================================================================
+ERROR: test_only_level_three_bottle_provides_aura (tests.test_bottle_aura_tdd.AuraTopologyTests.test_only_level_three_bottle_provides_aura) (kind='sun', level=3)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Jay\Desktop\protect carrot\tests\test_bottle_aura_tdd.py", line 41, in test_only_level_three_bottle_provides_aura
+    self.assertEqual(self.game.attack_speed_for(self.target), expected)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'Game' object has no attribute 'attack_speed_for'
+
+======================================================================
+ERROR: test_only_level_three_bottle_provides_aura (tests.test_bottle_aura_tdd.AuraTopologyTests.test_only_level_three_bottle_provides_aura) (kind='magic', level=1)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Jay\Desktop\protect carrot\tests\test_bottle_aura_tdd.py", line 41, in test_only_level_three_bottle_provides_aura
+    self.assertEqual(self.game.attack_speed_for(self.target), expected)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'Game' object has no attribute 'attack_speed_for'
+
+======================================================================
+ERROR: test_only_level_three_bottle_provides_aura (tests.test_bottle_aura_tdd.AuraTopologyTests.test_only_level_three_bottle_provides_aura) (kind='magic', level=2)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Jay\Desktop\protect carrot\tests\test_bottle_aura_tdd.py", line 41, in test_only_level_three_bottle_provides_aura
+    self.assertEqual(self.game.attack_speed_for(self.target), expected)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'Game' object has no attribute 'attack_speed_for'
+
+======================================================================
+ERROR: test_only_level_three_bottle_provides_aura (tests.test_bottle_aura_tdd.AuraTopologyTests.test_only_level_three_bottle_provides_aura) (kind='magic', level=3)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Jay\Desktop\protect carrot\tests\test_bottle_aura_tdd.py", line 41, in test_only_level_three_bottle_provides_aura
+    self.assertEqual(self.game.attack_speed_for(self.target), expected)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'Game' object has no attribute 'attack_speed_for'
+
+======================================================================
+ERROR: test_only_level_three_bottle_provides_aura (tests.test_bottle_aura_tdd.AuraTopologyTests.test_only_level_three_bottle_provides_aura) (kind='fan', level=1)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Jay\Desktop\protect carrot\tests\test_bottle_aura_tdd.py", line 41, in test_only_level_three_bottle_provides_aura
+    self.assertEqual(self.game.attack_speed_for(self.target), expected)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'Game' object has no attribute 'attack_speed_for'
+
+======================================================================
+ERROR: test_only_level_three_bottle_provides_aura (tests.test_bottle_aura_tdd.AuraTopologyTests.test_only_level_three_bottle_provides_aura) (kind='fan', level=2)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Jay\Desktop\protect carrot\tests\test_bottle_aura_tdd.py", line 41, in test_only_level_three_bottle_provides_aura
+    self.assertEqual(self.game.attack_speed_for(self.target), expected)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'Game' object has no attribute 'attack_speed_for'
+
+======================================================================
+ERROR: test_only_level_three_bottle_provides_aura (tests.test_bottle_aura_tdd.AuraTopologyTests.test_only_level_three_bottle_provides_aura) (kind='fan', level=3)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Jay\Desktop\protect carrot\tests\test_bottle_aura_tdd.py", line 41, in test_only_level_three_bottle_provides_aura
+    self.assertEqual(self.game.attack_speed_for(self.target), expected)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'Game' object has no attribute 'attack_speed_for'
+
+======================================================================
+ERROR: test_only_level_three_bottle_provides_aura (tests.test_bottle_aura_tdd.AuraTopologyTests.test_only_level_three_bottle_provides_aura) (kind='rocket', level=1)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Jay\Desktop\protect carrot\tests\test_bottle_aura_tdd.py", line 41, in test_only_level_three_bottle_provides_aura
+    self.assertEqual(self.game.attack_speed_for(self.target), expected)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'Game' object has no attribute 'attack_speed_for'
+
+======================================================================
+ERROR: test_only_level_three_bottle_provides_aura (tests.test_bottle_aura_tdd.AuraTopologyTests.test_only_level_three_bottle_provides_aura) (kind='rocket', level=2)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Jay\Desktop\protect carrot\tests\test_bottle_aura_tdd.py", line 41, in test_only_level_three_bottle_provides_aura
+    self.assertEqual(self.game.attack_speed_for(self.target), expected)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'Game' object has no attribute 'attack_speed_for'
+
+======================================================================
+ERROR: test_only_level_three_bottle_provides_aura (tests.test_bottle_aura_tdd.AuraTopologyTests.test_only_level_three_bottle_provides_aura) (kind='rocket', level=3)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Jay\Desktop\protect carrot\tests\test_bottle_aura_tdd.py", line 41, in test_only_level_three_bottle_provides_aura
+    self.assertEqual(self.game.attack_speed_for(self.target), expected)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'Game' object has no attribute 'attack_speed_for'
+
+======================================================================
+ERROR: test_overlap_does_not_stack_and_survives_one_source_sale (tests.test_bottle_aura_tdd.AuraTopologyTests.test_overlap_does_not_stack_and_survives_one_source_sale)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Jay\Desktop\protect carrot\tests\test_bottle_aura_tdd.py", line 65, in test_overlap_does_not_stack_and_survives_one_source_sale
+    self.assertEqual(self.game.attack_speed_for(self.target), 1.25)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'Game' object has no attribute 'attack_speed_for'
+
+======================================================================
+ERROR: test_reset_does_not_retain_old_sources (tests.test_bottle_aura_tdd.AuraTopologyTests.test_reset_does_not_retain_old_sources)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Jay\Desktop\protect carrot\tests\test_bottle_aura_tdd.py", line 95, in test_reset_does_not_retain_old_sources
+    self.assertEqual(replacement.attack_speed_for(self.target), 1)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'Game' object has no attribute 'attack_speed_for'
+
+======================================================================
+ERROR: test_upgrade_and_sale_apply_immediately_without_resetting_cooldown (tests.test_bottle_aura_tdd.AuraTopologyTests.test_upgrade_and_sale_apply_immediately_without_resetting_cooldown)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Jay\Desktop\protect carrot\tests\test_bottle_aura_tdd.py", line 75, in test_upgrade_and_sale_apply_immediately_without_resetting_cooldown
+    self.assertEqual(self.game.attack_speed_for(self.target), 1)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'Game' object has no attribute 'attack_speed_for'
+
+======================================================================
+FAIL: test_buffed_beam_kill_rewards_once_clears_lock_and_wins (tests.test_bottle_aura_tdd.AuraIntegrationTests.test_buffed_beam_kill_rewards_once_clears_lock_and_wins)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Jay\Desktop\protect carrot\tests\test_bottle_aura_tdd.py", line 278, in test_buffed_beam_kill_rewards_once_clears_lock_and_wins
+    self.assertEqual(game.state, 'won')
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^
+AssertionError: 'playing' != 'won'
+- playing
++ won
+
+
+======================================================================
+FAIL: test_game_applies_aura_before_attacks_independent_of_list_order (tests.test_bottle_aura_tdd.AuraIntegrationTests.test_game_applies_aura_before_attacks_independent_of_list_order) (reverse=False)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Jay\Desktop\protect carrot\tests\test_bottle_aura_tdd.py", line 240, in test_game_applies_aura_before_attacks_independent_of_list_order
+    self.assertAlmostEqual(victim.max_hp - victim.hp, 30)
+    ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 24.0 != 30 within 7 places (6.0 difference)
+
+======================================================================
+FAIL: test_game_applies_aura_before_attacks_independent_of_list_order (tests.test_bottle_aura_tdd.AuraIntegrationTests.test_game_applies_aura_before_attacks_independent_of_list_order) (reverse=True)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Jay\Desktop\protect carrot\tests\test_bottle_aura_tdd.py", line 240, in test_game_applies_aura_before_attacks_independent_of_list_order
+    self.assertAlmostEqual(victim.max_hp - victim.hp, 30)
+    ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 24.0 != 30 within 7 places (6.0 difference)
+
+======================================================================
+FAIL: test_preparation_pause_and_intermission_freeze_buffed_attacks (tests.test_bottle_aura_tdd.AuraIntegrationTests.test_preparation_pause_and_intermission_freeze_buffed_attacks)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Jay\Desktop\protect carrot\tests\test_bottle_aura_tdd.py", line 254, in test_preparation_pause_and_intermission_freeze_buffed_attacks
+    self.assertAlmostEqual(victim.max_hp - victim.hp, 15)
+    ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 12.0 != 15 within 7 places (3.0 difference)
+
+----------------------------------------------------------------------
+Ran 22 tests in 1.160s
+
+FAILED (failures=4, errors=79)

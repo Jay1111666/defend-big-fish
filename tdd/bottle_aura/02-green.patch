@@ -1,0 +1,44 @@
+--- a/model.py
++++ b/model.py
+@@ -238,11 +238,11 @@
+     def upgrade_cost(self):
+         return round(TOWERS[self.kind]['cost'] * (.7 + self.level * .3))
+ 
+-    def update(self, dt, enemies, effects, obstacles=(), priority_target=None):
++    def update(self, dt, enemies, effects, obstacles=(), priority_target=None, attack_speed=1.0):
+         if self.kind == 'magic':
+-            self.update_beam(dt, enemies, obstacles, priority_target)
+-            return
+-        self.cooldown = max(0, self.cooldown - dt)
++            self.update_beam(dt * attack_speed, enemies, obstacles, priority_target)
++            return
++        self.cooldown = max(0, self.cooldown - dt * attack_speed)
+         aimed = self.kind in self.AIMED_KINDS
+         self.recoil = max(0, self.recoil - dt)
+         if self.cooldown > 0 and not aimed:
+@@ -431,6 +431,15 @@
+             self.coins += int(tower.spent * .7)
+             self.towers.remove(tower)
+ 
++    def attack_speed_for(self, tower):
++        if tower not in self.towers:
++            return 1.0
++        for source in self.towers:
++            if (source is not tower and source.kind == 'bottle' and source.level == 3
++                    and source.position.distance_squared_to(tower.position) <= 160 ** 2):
++                return 1.25
++        return 1.0
++
+     def update(self, dt):
+         if self.state != 'playing':
+             return 0
+@@ -443,7 +452,8 @@
+             for enemy in self.enemies:
+                 enemy.update(dt)
+             for tower in self.towers:
+-                tower.update(dt, self.enemies, self.effects, self.obstacles, self.priority_target)
++                tower.update(dt, self.enemies, self.effects, self.obstacles, self.priority_target,
++                             attack_speed=self.attack_speed_for(tower))
+             # 拷贝列表，命中特效从下一帧开始计时，避免同一帧被更新两次。
+             for effect in list(self.effects):
+                 effect.update(dt, self.enemies, self.obstacles, self.effects)

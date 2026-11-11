@@ -1,0 +1,41 @@
+--- a/art.py
++++ b/art.py
+@@ -321,6 +321,7 @@
+         x, y = enemy.position
+         pygame.draw.ellipse(surface, (132, 95, 148), (x - 43, y + 22, 86, 20))
+         self.sprite(surface, 'boss', (x, y - 12 + math.sin(tick * 5) * 3), (108, 106))
++        draw_burn_flames(surface, enemy, tick, 1.5)
+         draw_slow_crystals(surface, enemy, tick, 1.8)
+ 
+     def draw_obstacle(self, surface, obstacle, selected=False, *, theme='cloud'):
+@@ -479,6 +480,24 @@
+     star(surface, end, 11, (243, 197, 255), tick * 5)
+ 
+ 
++def draw_burn_flames(surface, enemy, tick, scale=1):
++    if enemy.active_burn is None:
++        return
++    x, y = enemy.position
++    for i in range(3):
++        cx = x + (i - 1) * 12 * scale
++        bottom = y + 22 * scale
++        height = (18 + 5 * math.sin(tick * 12 + i * 2)) * scale
++        width = 7 * scale
++        tip = (cx + math.sin(tick * 8 + i) * 3 * scale, bottom - height)
++        pygame.draw.polygon(surface, (245, 111, 39),
++                            [(cx - width, bottom), (cx - width, bottom - height * .4),
++                             tip, (cx + width, bottom - height * .3), (cx + width, bottom)])
++        pygame.draw.polygon(surface, (255, 232, 100),
++                            [(cx - width * .45, bottom), (cx, bottom - height * .65),
++                             (cx + width * .45, bottom)])
++
++
+ def draw_slow_crystals(surface, enemy, tick, scale=1):
+     source = enemy.slow_source
+     if source is None:
+@@ -514,4 +533,5 @@
+         panel(surface, (x - bar / 2, y - 36, bar, 5), PLUM, radius=2)
+         panel(surface, (x - bar / 2, y - 36, max(1, bar * enemy.hp / enemy.max_hp), 5),
+               (132, 238, 169), radius=2)
++    draw_burn_flames(surface, enemy, tick)
+     draw_slow_crystals(surface, enemy, tick)
