@@ -1,0 +1,5 @@
+# 独立环境，避免替换桌面版 pygame。
+pygame-ce==2.5.8
+pygbag==0.9.3
+Pillow==13.0.0
+soundfile==0.14.0

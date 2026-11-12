@@ -19,8 +19,11 @@ FONTS = {}
 def text(surface, value, pos, size=20, color=INK, center=False, bold=False):
     key = size, bold
     if key not in FONTS:
-        path = pygame.font.match_font('microsoftyahei,simhei,notosanscjk,arial', bold=bold)
+        bundled = ROOT / 'assets' / 'fonts' / 'game-cjk.otf'
+        path = str(bundled) if bundled.exists() else pygame.font.match_font('microsoftyahei,simhei,notosanscjk,arial', bold=bold)
         FONTS[key] = pygame.font.Font(path, size)
+        if bundled.exists():
+            FONTS[key].set_bold(bold)
     rendered = FONTS[key].render(str(value), True, color)
     rect = rendered.get_rect(center=pos) if center else rendered.get_rect(topleft=pos)
     surface.blit(rendered, rect)

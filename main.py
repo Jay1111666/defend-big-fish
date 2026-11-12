@@ -1,8 +1,9 @@
 """保卫大肥鱼 · 云端花园。支持源码与独立 exe 启动。"""
 import argparse
+import asyncio
 import math
 import os
-import sqlite3
+import sys
 from pathlib import Path
 
 os.environ['PYGAME_HIDE_SUPPORT_PROMPT'] = '1'
@@ -10,13 +11,15 @@ import pygame
 from config import (WIDTH, HEIGHT, COLS, PADS, TOWERS,
                     LEVEL_NAMES, CHARACTERS, FIRST_CLEAR_STARS, pad_at, portrait_key)
 from model import Game, Enemy
-from progress import ProgressStore
+from progress import ProgressStore, open_progress, SAVE_ERRORS
 from game_audio import GameAudio
 from art import Art, ROOT, text, panel, star, draw_enemy, draw_effect, draw_laser, WHITE, MUTED, PLUM, TEAL
 
 
 class App:
-    def __init__(self, progress=None):
+    def __init__(self, progress=None, browser=False):
+        self.browser = browser
+        self.started = not browser
         pygame.init()
         pygame.display.set_caption('保卫大肥鱼 · 云端花园')
         self.screen = pygame.display.set_mode((WIDTH, HEIGHT))
@@ -25,9 +28,9 @@ class App:
         self.art.sprite(icon, 'whale', (32, 32), (64, 64))
         pygame.display.set_icon(icon)
         self.clock = pygame.time.Clock()
-        self.progress = ProgressStore() if progress is None else progress
+        self.progress = open_progress() if progress is None else progress
         self.profile = self.progress.snapshot()
-        self.audio = GameAudio(ROOT / 'assets' / 'audio', self.progress.audio_settings())
+        self.audio = GameAudio(ROOT / 'assets' / 'audio', self.progress.audio_settings(), deferred=browser)
         self.game = Game()
         self.settings_open = False
         self.settings_notice = ''
@@ -44,9 +47,10 @@ class App:
         self.popup = None
         self.notice = '点击任意空地，选择防御塔。准备好后开始第一波！'
         self.tick = 0
+        self.pointer = (0, 0)
 
     def mouse_position(self):
-        return pygame.mouse.get_pos()
+        return self.pointer if self.browser else pygame.mouse.get_pos()
 
     def reset(self, level):
         self.game = Game(level)
@@ -102,6 +106,8 @@ class App:
         s.set_clip(old_clip)
         label = '正在守护…' if g.waves.active else ('开始第一波 [空格]' if g.waves.index < 0 else '开始下一波 [空格]')
         self.button((1022, 736, 220, 39), label, 'wave', not g.waves.active and g.state == 'playing', size=17)
+        if self.selected is not None or self.build_pad is not None or g.priority_target is not None:
+            self.button((1110, 675, 130, 34), '取消选择', 'cancel', color=(107, 88, 162), size=15)
 
     def draw_selection(self):
         s = self.screen
@@ -150,7 +156,7 @@ class App:
         panel(s, self.popup, (255, 246, 253), (230, 210, 243), 20)
         if self.build_pad is not None:
             text(s, '在此建造', (left + 18, top + 9), 15, PLUM, bold=True)
-            text(s, '右键取消', (left + width - 80, top + 10), 12, MUTED)
+            text(s, '点击取消选择' if self.browser else '右键取消', (left + width - 95, top + 10), 12, MUTED)
             for i, (kind, spec) in enumerate(TOWERS.items()):
                 cx = left + 52 + i * 98
                 enabled = g.coins >= spec['cost']
@@ -275,6 +281,11 @@ class App:
                         f'audio:{key}', color=TEAL if enabled else (117, 100, 137), size=16)
         if self.settings_notice:
             text(s, self.settings_notice, (640, 473), 13, MUTED, True)
+        elif self.browser:
+            message = '进度保存在此浏览器，清理网站数据会清除存档。'
+            if not getattr(self.progress, 'persistent', True):
+                message = '浏览器存储不可用，本次进度将在关闭后丢失。'
+            text(s, message, (640, 473), 13, MUTED, True)
         self.button((543, 508, 194, 38), '返回游戏 [Esc]', 'settings', size=16)
 
     def draw(self):
@@ -321,6 +332,19 @@ class App:
             self.draw_shop()
         elif self.menu or g.state != 'playing':
             self.draw_modal()
+        if not self.started:
+            self.buttons = []
+            shade = pygame.Surface((WIDTH, HEIGHT), pygame.SRCALPHA)
+            shade.fill((30, 22, 48, 210))
+            s.blit(shade, (0, 0))
+            panel(s, (370, 235, 540, 330), (255, 244, 252), (222, 190, 231), 28)
+            text(s, '保卫大肥鱼', (640, 292), 40, PLUM, True, True)
+            text(s, '十段旅程，和伙伴一起守护花园', (640, 354), 20, MUTED, True)
+            self.button((490, 405, 300, 62), '点击开始冒险', 'begin', size=25)
+            message = '推荐横屏游玩 · 点击空地建塔 · 进度自动保存在此浏览器'
+            if not getattr(self.progress, 'persistent', True):
+                message = '浏览器存储不可用，本次进度仅在当前页面保留。'
+            text(s, message, (640, 513), 15, MUTED, True)
         pygame.display.flip()
 
     def draw_boss_hud(self):
@@ -356,6 +380,14 @@ class App:
 
     def action(self, action):
         g = self.game
+        if action == 'begin':
+            self.started = True
+            self.audio.unlock()
+            return
+        if action == 'cancel':
+            self.selected = self.build_pad = None
+            g.priority_target = None
+            return
         if action not in TOWERS:
             self.audio.effect('tap')
         if action == 'settings':
@@ -366,7 +398,7 @@ class App:
             enabled = not self.audio.settings[key]
             try:
                 self.progress.set_audio_setting(key, enabled)
-            except (sqlite3.Error, OSError):
+            except SAVE_ERRORS:
                 self.settings_notice = '设置未能保存，请稍后重试。'
             else:
                 self.audio.set_enabled(key, enabled)
@@ -378,7 +410,7 @@ class App:
                 try:
                     self.profile = self.progress.snapshot()
                     self.shop_notice = '兑换后点击使用角色，就能与她一起冒险。'
-                except (sqlite3.Error, OSError):
+                except SAVE_ERRORS:
                     self.shop_notice = '存档暂不可用，请稍后重新打开商店。'
         elif action.startswith(('buy:', 'equip:')):
             self.shop_action(action)
@@ -432,7 +464,7 @@ class App:
             else:
                 self.shop_notice = '请先兑换这位伙伴。'
             self.profile = self.progress.snapshot()
-        except (sqlite3.Error, OSError):
+        except SAVE_ERRORS:
             self.shop_notice = '存档暂不可用，请重试本次操作。'
 
     def settle_victory(self):
@@ -443,12 +475,12 @@ class App:
             self.profile = self.progress.snapshot()
             self.reward_message = f'首次通关！获得 {reward} 星声' if reward else '本关首通星声已领取'
             self.reward_settled = True
-        except (sqlite3.Error, OSError):
+        except SAVE_ERRORS:
             self.reward_message = '星声存档暂不可用，请点击重试'
 
     def advance(self, dt):
         self.audio.update()
-        if self.paused or self.menu or self.shop or self.settings_open:
+        if not self.started or self.paused or self.menu or self.shop or self.settings_open:
             return
         if self.game.waves.active:
             self.tick += dt
@@ -464,6 +496,25 @@ class App:
             self.settle_victory()
 
     def handle_event(self, event):
+        if self.browser:
+            if event.type == pygame.WINDOWFOCUSLOST:
+                if self.game.waves.active:
+                    self.paused = True
+                self.audio.clear_hits()
+            if event.type == pygame.FINGERDOWN:
+                self.pointer = (round(event.x * WIDTH), round(event.y * HEIGHT))
+                event = pygame.event.Event(pygame.MOUSEBUTTONDOWN, button=1, pos=self.pointer)
+            elif event.type in (pygame.MOUSEBUTTONDOWN, pygame.MOUSEMOTION):
+                if getattr(event, 'touch', False):
+                    return  # FINGERDOWN 已处理，避免触摸合成的鼠标事件重复购买。
+                self.pointer = event.pos
+        if not self.started:
+            if event.type == pygame.MOUSEBUTTONDOWN and event.button == 1:
+                for rect, action, enabled in self.buttons:
+                    if action == 'begin' and rect.collidepoint(event.pos):
+                        self.action('begin')
+                        break
+            return
         if event.type == pygame.KEYDOWN:
             if self.settings_open:
                 if event.key == pygame.K_ESCAPE:
@@ -574,8 +625,45 @@ class App:
         self.progress.close()
         pygame.quit()
 
+    async def run_async(self):
+        """每帧让出浏览器主线程；页面隐藏时冻结战斗，不补算离开期间的时间。"""
+        from platform import window, document
+        self.draw()
+        window.gameReady = True
+        try:
+            while True:
+                dt = min(self.clock.tick(60) / 1000, .1)
+                for event in pygame.event.get():
+                    if event.type == pygame.QUIT:
+                        return
+                    self.handle_event(event)
+                if document.hidden:
+                    if self.game.waves.active:
+                        self.paused = True
+                    self.audio.clear_hits()
+                else:
+                    self.advance(dt)
+                    self.draw()
+                await asyncio.sleep(0)
+        finally:
+            self.progress.close()
+            pygame.quit()
 
-if __name__ == '__main__':
+
+async def browser_main():
+    try:
+        app = App(browser=True)
+        app.reset(0)
+        await app.run_async()
+    except Exception:
+        from platform import window
+        window.gameLoadError = '游戏加载失败，请刷新重试；若仍失败，请检查网络。'
+        raise
+
+
+if sys.platform == 'emscripten':
+    asyncio.run(browser_main())
+elif __name__ == '__main__':
     parser = argparse.ArgumentParser(description='保卫大肥鱼')
     parser.add_argument('--screenshot', type=Path, help='保存开局截图并退出')
     parser.add_argument('--preview-menu', action='store_true', help='截图中展示空地建造菜单')

@@ -1,4 +1,7 @@
 .venv/
+.venv-web/
+.web-stage/
+dist/
 __pycache__/
 *.pyc
 build/

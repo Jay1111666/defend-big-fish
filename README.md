@@ -1,5 +1,7 @@
 # 保卫大肥鱼 · 云端花园
 
+网页版适配位于 `web-version` 分支，构建与 GitHub Pages 发布步骤见 [网页版说明](web/README.md)。本地构建后双击 `start-web.bat`，保持窗口打开，再访问 http://127.0.0.1:8000/ 。网页构建使用独立 `.venv-web` 环境；现有 Windows EXE 仍可使用。
+
 TDD 主案例见 [满级瓶子炮攻速光环](tdd/bottle_aura/README.md)，覆盖多来源光环、动态冷却、持续激光、穿透弹、范围攻击与暂停结算。专项测试位于 [tests/test_bottle_aura_tdd.py](tests/test_bottle_aura_tdd.py)，保存了真实 Red → Green → Refactor 输出与变更。
 
 建塔交易作为基础案例，见 [过程记录](tdd/build_transaction/README.md) 与 [专项测试](tests/test_build_tdd.py)。

@@ -1,9 +1,25 @@
 """持久化星声、已兑换角色、当前角色与首通记录。"""
 from dataclasses import dataclass
 from pathlib import Path
-import sqlite3
+import importlib
 import sys
 from config import CHARACTERS, INITIAL_STARS, FIRST_CLEAR_STARS, LEVEL_NAMES
+
+# SQLite 属于桌面后端，浏览器打包时不扫描或加载其原生扩展。
+sqlite3 = importlib.import_module('sqlite3') if sys.platform != 'emscripten' else None
+SAVE_ERRORS = (OSError, sqlite3.Error) if sqlite3 else (OSError,)
+
+
+def open_progress():
+    if sys.platform == 'emscripten':
+        from browser_progress import BrowserProgressStore, MemoryStorage
+        try:
+            return BrowserProgressStore()
+        except OSError:
+            store = BrowserProgressStore(MemoryStorage())
+            store.persistent = False
+            return store
+    return ProgressStore()
 
 
 def default_save_path():
