@@ -3,7 +3,7 @@ import os
 import tempfile
 import unittest
 from pathlib import Path
-from unittest.mock import patch
+from unittest.mock import Mock, patch
 
 os.environ['SDL_VIDEODRIVER'] = 'dummy'
 os.environ['SDL_AUDIODRIVER'] = 'dummy'
@@ -12,9 +12,31 @@ from config import CHARACTERS, portrait_key
 from main import App, pygame
 from model import Enemy
 from progress import ProgressStore
+from game_audio import GameAudio
+from art import ROOT
 
 
 class AudioTests(unittest.TestCase):
+    def test_browser_music_uses_native_backend_without_starting_sdl_music(self):
+        pygame.init()
+        self.addCleanup(pygame.quit)
+        backend = Mock()
+        with patch.object(pygame.mixer.music, 'load') as load, patch.object(pygame.mixer.music, 'play') as play:
+            audio = GameAudio(ROOT / 'assets' / 'audio', {'music': True, 'effects': True},
+                              deferred=True, music_backend=backend)
+            backend.setEnabled.assert_not_called()
+            audio.unlock()
+            audio.unlock()
+            backend.setEnabled.assert_called_once_with(True)
+            audio.set_enabled('effects', False)
+            backend.setEnabled.assert_called_once_with(True)
+            audio.set_enabled('music', False)
+            audio.set_enabled('music', True)
+            self.assertEqual([call.args for call in backend.setEnabled.call_args_list],
+                             [(True,), (False,), (True,)])
+            load.assert_not_called()
+            play.assert_not_called()
+
     def test_audio_settings_are_independent_and_persist(self):
         with tempfile.TemporaryDirectory(dir=Path(__file__).resolve().parent) as directory:
             path = Path(directory) / 'save.sqlite3'

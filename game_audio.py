@@ -3,15 +3,18 @@ import pygame
 
 
 class GameAudio:
-    def __init__(self, directory, settings, deferred=False):
+    def __init__(self, directory, settings, deferred=False, music_backend=None):
         self.settings = dict(settings)
         self.sounds = {}
         self.pending_hits = 0
         self.hit_channel = None
         self.hit_sounds = ()
-        self.music_loaded = False
+        self.music_backend = music_backend
+        self.music_loaded = music_backend is not None
         self.unlocked = not deferred
         if pygame.mixer.get_init() is None:
+            if self.music_loaded:
+                self.set_enabled('music', self.settings['music'])
             return
 
         for key in ('tap', 'build', 'hit', 'hit-ouch'):
@@ -25,6 +28,9 @@ class GameAudio:
         self.hit_sounds = tuple(self.sounds[key] for key in ('hit', 'hit-ouch') if key in self.sounds)
         pygame.mixer.set_reserved(1)
         self.hit_channel = pygame.mixer.Channel(0)
+        if self.music_backend is not None:
+            self.set_enabled('music', self.settings['music'])
+            return
         try:
             path = directory / 'garden-loop.ogg'
             pygame.mixer.music.load(str(path if path.exists() else directory / 'garden-loop.wav'))
@@ -37,7 +43,9 @@ class GameAudio:
     def set_enabled(self, key, enabled):
         self.settings[key] = enabled
         if key == 'music' and self.music_loaded and self.unlocked:
-            if enabled:
+            if self.music_backend is not None:
+                self.music_backend.setEnabled(enabled)
+            elif enabled:
                 pygame.mixer.music.play(-1)
             else:
                 pygame.mixer.music.stop()

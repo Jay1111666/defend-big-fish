@@ -33,10 +33,12 @@ py -3.13 -m venv .venv-web
 ```powershell
 npm install --prefix build/browser-tools --no-save playwright
 node tools/browser_smoke.cjs
+node tools/browser_audio_smoke.cjs
 ```
 
 - 固定 1280×800 逻辑画布按屏幕等比例缩放，横屏更易操作；SDL 将缩放后的鼠标位置映射到逻辑坐标。
 - 开始按钮在游戏准备完成后出现，点击后启用音乐与音效。
+- 背景音乐使用浏览器原生 Web Audio 音频线程，独立解码 PCM WAV 并循环播放，避免游戏繁忙帧导致 WASM 音频缓冲断续。开关使用 40 毫秒淡入淡出，循环接缝平滑到零；音效仍使用 Pygame，网页版缓冲为 2048 个采样。
 - 触摸使用 FINGERDOWN，忽略重复的触摸合成鼠标事件，另有取消选择按钮。
 - 切换标签页/失去焦点会暂停活动波次，返回后手动继续，不补算后台时间。
 - 桌面版保留 SQLite，网页版以同一存档接口使用 localStorage，购买和首通奖励立即保存。浏览器禁用存储或存档损坏时使用临时会话，并在开始页面和设置页说明。

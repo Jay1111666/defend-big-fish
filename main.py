@@ -20,6 +20,8 @@ class App:
     def __init__(self, progress=None, browser=False):
         self.browser = browser
         self.started = not browser
+        if browser:
+            pygame.mixer.pre_init(frequency=44100, size=-16, channels=2, buffer=2048)
         pygame.init()
         pygame.display.set_caption('保卫大肥鱼 · 云端花园')
         self.screen = pygame.display.set_mode((WIDTH, HEIGHT))
@@ -30,7 +32,12 @@ class App:
         self.clock = pygame.time.Clock()
         self.progress = open_progress() if progress is None else progress
         self.profile = self.progress.snapshot()
-        self.audio = GameAudio(ROOT / 'assets' / 'audio', self.progress.audio_settings(), deferred=browser)
+        music_backend = None
+        if sys.platform == 'emscripten':
+            from platform import window
+            music_backend = window.gameMusic
+        self.audio = GameAudio(ROOT / 'assets' / 'audio', self.progress.audio_settings(),
+                               deferred=browser, music_backend=music_backend)
         self.game = Game()
         self.settings_open = False
         self.settings_notice = ''

@@ -68,9 +68,13 @@ def main():
     clean_generated(DIST)
     shutil.copytree(STAGE / 'build' / 'web', DIST)
     shutil.copy2(STAGE / 'favicon.png', DIST / 'favicon.png')
+    shutil.copy2(ROOT / 'web' / 'audio.js', DIST / 'audio.js')
+    (DIST / 'audio').mkdir()
+    shutil.copy2(ROOT / 'assets' / 'audio' / 'garden-loop.wav', DIST / 'audio' / 'garden-loop.wav')
     (DIST / '.nojekyll').touch()
     manifest = dict(files=len(list(target_assets.rglob('*'))),
-                    asset_bytes=sum(p.stat().st_size for p in target_assets.rglob('*') if p.is_file()))
+                    asset_bytes=sum(p.stat().st_size for p in target_assets.rglob('*') if p.is_file()),
+                    native_music_bytes=(DIST / 'audio' / 'garden-loop.wav').stat().st_size)
     (DIST / 'build-info.json').write_text(json.dumps(manifest), encoding='utf-8')
     print(f'Web build ready: {DIST} ({manifest["asset_bytes"] / 1024 / 1024:.1f} MiB assets)')
 
